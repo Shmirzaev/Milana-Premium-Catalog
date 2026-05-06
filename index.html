@@ -255,7 +255,7 @@ const LANG = {
   }
 };
 
-let currentLang = localStorage.getItem('mp_lang') || 'uz';
+let currentLang = localStorage.getItem('mp_lang') || 'ru';
 function t(k){ return (LANG[currentLang]||LANG.uz)[k] || LANG.uz[k] || k; }
 
 function setLang(lang){
