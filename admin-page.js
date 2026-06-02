@@ -16,7 +16,10 @@
     products: [],
     filtered: [],
     editing: null,
-    creating: false
+    creating: false,
+    productOrder: [],
+    visibilityOverrides: new Map(),
+    draggingProductKey: ""
   };
 
   const loginPanel = document.getElementById("loginPanel");
@@ -46,18 +49,33 @@
   addProductButton.addEventListener("click", openCreator);
   searchEl.addEventListener("input", applySearch);
   gridEl.addEventListener("error", handleGridImageError, true);
+  gridEl.addEventListener("dragstart", handleDragStart);
+  gridEl.addEventListener("dragover", handleDragOver);
+  gridEl.addEventListener("dragleave", handleDragLeave);
+  gridEl.addEventListener("drop", handleDrop);
+  gridEl.addEventListener("dragend", handleDragEnd);
   gridEl.addEventListener("click", (event) => {
-    const visibilityButton = event.target.closest("[data-visibility-id]");
-    if (visibilityButton) {
-      toggleVisibility(visibilityButton.dataset.visibilityId);
+    if (event.target.closest("[data-drag-handle]")) {
       return;
     }
 
-    const button = event.target.closest("[data-edit-id]");
+    const moveButton = event.target.closest("[data-move-action]");
+    if (moveButton) {
+      moveProduct(moveButton.dataset.productKey, moveButton.dataset.moveAction);
+      return;
+    }
+
+    const visibilityButton = event.target.closest("[data-visibility-key]");
+    if (visibilityButton) {
+      toggleVisibility(visibilityButton.dataset.visibilityKey);
+      return;
+    }
+
+    const button = event.target.closest("[data-edit-key]");
     if (!button) {
       return;
     }
-    openEditor(button.dataset.editId);
+    openEditor(button.dataset.editKey);
   });
   document.getElementById("closeEdit").addEventListener("click", closeEditor);
   document.getElementById("cancelEdit").addEventListener("click", closeEditor);
@@ -144,14 +162,21 @@
 
   async function loadProducts() {
     showStatus("Loading products...");
-    const [localResult, supabaseResult, manualResult] = await Promise.allSettled([
+    const [localResult, supabaseResult, manualResult, orderResult, visibilityResult] = await Promise.allSettled([
       readProductsFromLocalJson(),
       readProductsFromSupabase(),
-      readManualProductsFromStorage()
+      readManualProductsFromStorage(),
+      readProductOrderFromStorage(),
+      readProductVisibilityFromStorage()
     ]);
     const localProducts = localResult.status === "fulfilled" ? localResult.value : [];
     const supabaseProducts = supabaseResult.status === "fulfilled" ? supabaseResult.value : [];
     const manualProducts = manualResult.status === "fulfilled" ? manualResult.value : [];
+    state.productOrder = orderResult.status === "fulfilled" ? orderResult.value : [];
+    state.visibilityOverrides = new Map(
+      Object.entries(visibilityResult.status === "fulfilled" ? visibilityResult.value : {})
+        .map(([key, value]) => [key, value !== false])
+    );
     if (!localProducts.length && !supabaseProducts.length) {
       const error = supabaseResult.status === "rejected" ? supabaseResult.reason : localResult.reason;
       throw new Error((error && error.message) || "Main catalog products could not be loaded.");
@@ -190,6 +215,7 @@
     });
 
     state.products = removeCatalog4ImagePlaceholders(state.products);
+    state.products = state.products.map(applyVisibilityOverride);
     state.products.sort(compareProducts);
     state.filtered = state.products.slice();
     if (!supabaseProducts.length && localProducts.length) {
@@ -315,6 +341,13 @@
   }
 
   function compareProducts(a, b) {
+    const order = new Map(state.productOrder.map((key, index) => [key, index]));
+    const aIndex = order.has(productKey(a)) ? order.get(productKey(a)) : Number.POSITIVE_INFINITY;
+    const bIndex = order.has(productKey(b)) ? order.get(productKey(b)) : Number.POSITIVE_INFINITY;
+    if (aIndex !== bIndex) {
+      return aIndex - bIndex;
+    }
+
     return Number(a.page || 0) - Number(b.page || 0) || Number(a.card_index || 0) - Number(b.card_index || 0);
   }
 
@@ -347,14 +380,21 @@
       const imageFallbacks = image ? adminImageFallbacks(product, image) : [];
       const price = escapeHtml(formatPrice(product.price, product.currency));
       const visible = isVisible(product);
+      const key = escapeAttribute(productKey(product));
       return `
-        <article class="product-card${visible ? "" : " is-off"}">
+        <article class="product-card${visible ? "" : " is-off"}" draggable="true" data-product-key="${key}">
           ${visible ? "" : '<span class="visibility-badge">Off</span>'}
-          <button class="edit-button" type="button" data-edit-id="${escapeAttribute(product.id)}">Edit</button>
+          <button class="drag-handle" type="button" data-drag-handle title="Drag to reorder" aria-label="Drag to reorder">::</button>
+          <div class="move-controls" aria-label="Move card">
+            <button type="button" data-move-action="top" data-product-key="${key}" title="Move to top" aria-label="Move to top">&#8679;</button>
+            <button type="button" data-move-action="up" data-product-key="${key}" title="Move up" aria-label="Move up">&#8593;</button>
+            <button type="button" data-move-action="down" data-product-key="${key}" title="Move down" aria-label="Move down">&#8595;</button>
+          </div>
+          <button class="edit-button" type="button" data-edit-key="${key}">Edit</button>
           <button
             class="visibility-switch ${visible ? "is-on" : "is-off"}${product.saving_visibility ? " is-saving" : ""}"
             type="button"
-            data-visibility-id="${escapeAttribute(product.id)}"
+            data-visibility-key="${key}"
             aria-label="${visible ? "Turn client visibility off" : "Turn client visibility on"}"
             aria-pressed="${visible ? "true" : "false"}"
             ${product.saving_visibility ? "disabled" : ""}>
@@ -370,13 +410,18 @@
               <p class="price">${price}</p>
             </div>
             <p class="code">Code ${code}</p>
+            <div class="card-move-actions" aria-label="Move card">
+              <button type="button" data-move-action="top" data-product-key="${key}">Top</button>
+              <button type="button" data-move-action="left" data-product-key="${key}">Left</button>
+              <button type="button" data-move-action="right" data-product-key="${key}">Right</button>
+            </div>
           </div>
         </article>
       `;
   }
 
-  function openEditor(id) {
-    const product = state.products.find((item) => String(item.id) === String(id));
+  function openEditor(key) {
+    const product = state.products.find((item) => productKey(item) === String(key));
     if (!product) {
       return;
     }
@@ -692,6 +737,161 @@
     return `${prefix}/manual-products/${safeSourceStem(catalog.sourcePdf)}.json`;
   }
 
+  async function readProductOrderFromStorage() {
+    return readCatalogListFromStorage(productOrderStorageUrl(), "order");
+  }
+
+  async function writeProductOrderToStorage() {
+    state.productOrder = state.products.map(productKey);
+    return writeCatalogListToStorage(productOrderStoragePath(), {
+      source_pdf: catalog.sourcePdf,
+      updated_at: new Date().toISOString(),
+      order: state.productOrder
+    });
+  }
+
+  async function readCatalogListFromStorage(url, field) {
+    if (!config.supabaseUrl) {
+      return [];
+    }
+
+    const response = await fetch(url, { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return [];
+    }
+
+    const payload = await response.json();
+    const values = Array.isArray(payload) ? payload : payload && payload[field];
+    return Array.isArray(values) ? values.filter(Boolean).map(String) : [];
+  }
+
+  async function writeCatalogListToStorage(path, payload) {
+    const bucket = config.imageBucket || "product-images";
+    const response = await supabaseFetch(
+      `/storage/v1/object/${encodeURIComponent(bucket)}/${pathEncode(path)}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-upsert": "true"
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    if (!response.ok) {
+      const details = await readResponseMessage(response);
+      throw new Error(details || "Catalog settings could not be saved.");
+    }
+  }
+
+  function productOrderStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(productOrderStoragePath())}`;
+  }
+
+  function productOrderStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/product-order/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  async function readProductVisibilityFromStorage() {
+    const localPayload = readLocalVisibilityOverrides();
+    const localVisibility = localPayload.pending_remote_write
+      ? visibilityObject(localPayload.visibility || {})
+      : hiddenVisibilityOnly(localPayload.visibility || {});
+    if (!config.supabaseUrl) {
+      return localVisibility;
+    }
+
+    const response = await fetch(productVisibilityStorageUrl(), { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return localVisibility;
+    }
+
+    const payload = await response.json();
+    const remoteVisibility = hiddenVisibilityOnly(payload && payload.visibility);
+    if (localPayload.pending_remote_write || isNewerVisibilityPayload(localPayload, payload)) {
+      return Object.assign({}, remoteVisibility, localVisibility);
+    }
+
+    return Object.assign({}, localVisibility, remoteVisibility);
+  }
+
+  async function writeProductVisibilityToStorage() {
+    const visibility = Object.fromEntries(state.visibilityOverrides);
+    const payload = {
+      source_pdf: catalog.sourcePdf,
+      updated_at: new Date().toISOString(),
+      visibility: hiddenVisibilityOnly(visibility)
+    };
+    writeLocalVisibilityOverrides(true, Object.assign({}, payload, { visibility }));
+    await writeCatalogListToStorage(productVisibilityStoragePath(), payload);
+    writeLocalVisibilityOverrides(false, payload);
+  }
+
+  function productVisibilityStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    const cacheBust = "v=" + encodeURIComponent(String(Date.now()));
+    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(productVisibilityStoragePath())}?${cacheBust}`;
+  }
+
+  function productVisibilityStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/product-visibility/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  function readLocalVisibilityOverrides() {
+    try {
+      const payload = JSON.parse(localStorage.getItem(localVisibilityStorageKey()) || "{}");
+      return payload && typeof payload === "object" && !Array.isArray(payload)
+        ? payload
+        : {};
+    } catch (_error) {
+      return {};
+    }
+  }
+
+  function writeLocalVisibilityOverrides(pendingRemoteWrite, payload) {
+    localStorage.setItem(localVisibilityStorageKey(), JSON.stringify(Object.assign({}, payload, {
+      pending_remote_write: pendingRemoteWrite === true
+    })));
+  }
+
+  function localVisibilityStorageKey() {
+    return `milana_visibility_${safeSourceStem(catalog.sourcePdf)}`;
+  }
+
+  function isNewerVisibilityPayload(candidate, reference) {
+    const candidateTime = Date.parse(candidate && candidate.updated_at || "");
+    const referenceTime = Date.parse(reference && reference.updated_at || "");
+    return Number.isFinite(candidateTime) && Number.isFinite(referenceTime) && candidateTime >= referenceTime;
+  }
+
+  function hiddenVisibilityOnly(visibility) {
+    const values = visibilityObject(visibility);
+    return Object.fromEntries(Object.entries(values).filter(([, value]) => value === false));
+  }
+
+  function visibilityObject(visibility) {
+    return visibility && typeof visibility === "object" && !Array.isArray(visibility)
+      ? visibility
+      : {};
+  }
+
+  function applyVisibilityOverride(product) {
+    const key = productKey(product);
+    if (!state.visibilityOverrides.has(key)) {
+      return product;
+    }
+
+    const visible = state.visibilityOverrides.get(key) !== false;
+    return Object.assign({}, product, {
+      is_visible: visible,
+      extraction_status: visible ? visibleExtractionStatus(product) : LEGACY_HIDDEN_STATUS
+    });
+  }
+
   async function saveOverride(payload, product = state.editing) {
     if (!Object.keys(payload).length) {
       return { skipped: true };
@@ -868,37 +1068,55 @@
     return rows[0];
   }
 
-  async function toggleVisibility(id) {
-    const product = state.products.find((item) => String(item.id) === String(id));
+  async function toggleVisibility(key) {
+    const product = state.products.find((item) => productKey(item) === String(key));
     if (!product) {
       return;
     }
 
     const nextVisible = !isVisible(product);
     const payload = { is_visible: nextVisible };
-    Object.assign(product, { saving_visibility: true });
+    Object.assign(product, {
+      is_visible: nextVisible,
+      extraction_status: nextVisible ? visibleExtractionStatus(product) : LEGACY_HIDDEN_STATUS,
+      saving_visibility: true
+    });
     renderProducts();
 
     try {
+      state.visibilityOverrides.set(key, nextVisible);
+      await writeProductVisibilityToStorage();
+
       if (product.manual_storage) {
-        const updated = await updateManualProduct(product, payload);
-        Object.assign(product, updated || payload, { saving_visibility: false });
-      } else if (!product.local_only) {
-        const updated = await patchProduct(payload, product);
+        const updated = await updateManualProduct(product, legacyVisibilityPayload(payload, product));
         Object.assign(product, updated || payload, { saving_visibility: false });
       } else {
-        Object.assign(product, payload, { saving_visibility: false });
+        const manualOverlay = await saveManualProductToStorage(visibilityStoragePayload(product, nextVisible));
+        Object.assign(product, manualOverlay, { saving_visibility: false });
+        if (!product.local_only) {
+          try {
+            const updated = await patchProduct(payload, product);
+            Object.assign(product, updated || {}, manualOverlay, { saving_visibility: false });
+          } catch (error) {
+            console.warn(error);
+          }
+        }
       }
 
       if (!product.manual_storage && product.source_system !== "milana_manual_admin") {
-        await saveOverride(payload, product);
+        try {
+          await saveOverride(payload, product);
+        } catch (error) {
+          console.warn(error);
+        }
       }
 
+      Object.assign(product, applyVisibilityOverride(product), { saving_visibility: false });
       applySearch();
     } catch (error) {
       showStatus(error.message || "Visibility could not be changed.");
-      Object.assign(product, { saving_visibility: false });
-      renderProducts();
+      Object.assign(product, applyVisibilityOverride(product), { saving_visibility: false });
+      applySearch();
     }
   }
 
@@ -937,6 +1155,15 @@
     return fallback;
   }
 
+  function visibilityStoragePayload(product, nextVisible) {
+    return Object.assign({}, product, {
+      is_visible: nextVisible,
+      extraction_status: nextVisible ? visibleExtractionStatus(product) : LEGACY_HIDDEN_STATUS,
+      manual_storage: true,
+      local_only: false
+    });
+  }
+
   function visibleExtractionStatus(product) {
     if (product.source_system === "milana_manual_admin") {
       return "manual";
@@ -955,6 +1182,138 @@
       ? state.products.filter((item) => searchableText(item).includes(query))
       : state.products.slice();
     renderProducts();
+  }
+
+  function handleDragStart(event) {
+    const card = event.target instanceof Element ? event.target.closest("[data-product-key]") : null;
+    if (!card) {
+      return;
+    }
+
+    if (searchEl.value.trim()) {
+      event.preventDefault();
+      showStatus("Clear search before moving cards.");
+      return;
+    }
+
+    state.draggingProductKey = card.dataset.productKey || "";
+    card.classList.add("is-dragging");
+    if (event.dataTransfer) {
+      event.dataTransfer.effectAllowed = "move";
+      event.dataTransfer.setData("text/plain", state.draggingProductKey);
+    }
+  }
+
+  function handleDragOver(event) {
+    if (!state.draggingProductKey) {
+      return;
+    }
+
+    const card = event.target instanceof Element ? event.target.closest("[data-product-key]") : null;
+    if (!card || card.dataset.productKey === state.draggingProductKey) {
+      return;
+    }
+
+    event.preventDefault();
+    card.classList.add("is-drop-target");
+    if (event.dataTransfer) {
+      event.dataTransfer.dropEffect = "move";
+    }
+  }
+
+  function handleDragLeave(event) {
+    const card = event.target instanceof Element ? event.target.closest("[data-product-key]") : null;
+    if (card) {
+      card.classList.remove("is-drop-target");
+    }
+  }
+
+  async function handleDrop(event) {
+    const card = event.target instanceof Element ? event.target.closest("[data-product-key]") : null;
+    if (!card || !state.draggingProductKey) {
+      return;
+    }
+
+    event.preventDefault();
+    clearDragClasses();
+    const targetKey = card.dataset.productKey || "";
+    if (!targetKey || targetKey === state.draggingProductKey) {
+      return;
+    }
+
+    moveProductBefore(state.draggingProductKey, targetKey);
+    try {
+      await saveProductOrder();
+      showStatus("Card order saved.");
+    } catch (error) {
+      showStatus(error.message || "Card order could not be saved.");
+    }
+  }
+
+  function handleDragEnd() {
+    state.draggingProductKey = "";
+    clearDragClasses();
+  }
+
+  function clearDragClasses() {
+    gridEl.querySelectorAll(".is-dragging, .is-drop-target").forEach((card) => {
+      card.classList.remove("is-dragging", "is-drop-target");
+    });
+  }
+
+  function moveProductBefore(sourceKey, targetKey) {
+    const sourceIndex = state.products.findIndex((product) => productKey(product) === sourceKey);
+    if (sourceIndex < 0) {
+      return;
+    }
+
+    const moved = state.products.splice(sourceIndex, 1)[0];
+    const targetIndex = state.products.findIndex((product) => productKey(product) === targetKey);
+    state.products.splice(targetIndex < 0 ? state.products.length : targetIndex, 0, moved);
+    state.productOrder = state.products.map(productKey);
+    applySearch();
+  }
+
+  async function moveProduct(sourceKey, action) {
+    if (searchEl.value.trim()) {
+      showStatus("Clear search before moving cards.");
+      return;
+    }
+
+    const sourceIndex = state.products.findIndex((product) => productKey(product) === sourceKey);
+    if (sourceIndex < 0) {
+      return;
+    }
+
+    let targetIndex = sourceIndex;
+    if (action === "top") {
+      targetIndex = 0;
+    } else if (action === "up" || action === "left") {
+      targetIndex = Math.max(0, sourceIndex - 1);
+    } else if (action === "down" || action === "right") {
+      targetIndex = Math.min(state.products.length - 1, sourceIndex + 1);
+    }
+
+    if (targetIndex === sourceIndex) {
+      return;
+    }
+
+    const moved = state.products.splice(sourceIndex, 1)[0];
+    state.products.splice(targetIndex, 0, moved);
+    state.productOrder = state.products.map(productKey);
+    applySearch();
+
+    try {
+      await saveProductOrder();
+      showStatus("Card order saved.");
+    } catch (error) {
+      showStatus(error.message || "Card order could not be saved.");
+    }
+  }
+
+  async function saveProductOrder() {
+    state.productOrder = state.products.map(productKey);
+    await writeProductOrderToStorage();
   }
 
   function showWorkspace() {

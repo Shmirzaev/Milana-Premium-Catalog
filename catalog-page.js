@@ -50,7 +50,9 @@
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
   const state = {
     products: [],
-    filtered: []
+    filtered: [],
+    productOrder: [],
+    visibilityOverrides: new Map()
   };
 
   const titleEl = document.getElementById("catalogTitle");
@@ -130,8 +132,16 @@
 
   async function loadProducts() {
     showStatus("Loading products...");
-    const products = await readProducts();
-    const manualProducts = await readManualProductsFromStorage().catch(() => []);
+    const [products, manualProducts, productOrder, visibilityOverrides] = await Promise.all([
+      readProducts(),
+      readManualProductsFromStorage().catch(() => []),
+      readProductOrderFromStorage().catch(() => []),
+      readProductVisibilityFromStorage().catch(() => ({}))
+    ]);
+    state.productOrder = productOrder;
+    state.visibilityOverrides = new Map(
+      Object.entries(visibilityOverrides).map(([key, value]) => [key, value !== false])
+    );
     setProducts(mergeManualProducts(products, manualProducts));
 
     renderProducts();
@@ -140,7 +150,9 @@
   function setProducts(products) {
     state.products = removeCatalog4ImagePlaceholders(products)
       .filter((item) => item && item.source_pdf === catalog.sourcePdf)
-      .sort((a, b) => Number(a.page || 0) - Number(b.page || 0) || Number(a.card_index || 0) - Number(b.card_index || 0));
+      .map(applyVisibilityOverride)
+      .filter(isVisible)
+      .sort(compareProducts);
     filterProducts();
 
     if (!state.products.length) {
@@ -182,6 +194,11 @@
           return;
         }
 
+        state.productOrder = await readProductOrderFromStorage().catch(() => state.productOrder);
+        state.visibilityOverrides = new Map(
+          Object.entries(await readProductVisibilityFromStorage().catch(() => Object.fromEntries(state.visibilityOverrides)))
+            .map(([key, value]) => [key, value !== false])
+        );
         setProducts(mergedProducts);
         renderProducts();
       }).catch(() => {});
@@ -212,6 +229,30 @@
       Number(product.page || 0),
       Number(product.card_index || 0)
     ].join(":");
+  }
+
+  function compareProducts(a, b) {
+    const order = new Map(state.productOrder.map((key, index) => [key, index]));
+    const aIndex = order.has(productKey(a)) ? order.get(productKey(a)) : Number.POSITIVE_INFINITY;
+    const bIndex = order.has(productKey(b)) ? order.get(productKey(b)) : Number.POSITIVE_INFINITY;
+    if (aIndex !== bIndex) {
+      return aIndex - bIndex;
+    }
+
+    return Number(a.page || 0) - Number(b.page || 0) || Number(a.card_index || 0) - Number(b.card_index || 0);
+  }
+
+  function applyVisibilityOverride(product) {
+    const key = productKey(product);
+    if (!state.visibilityOverrides.has(key)) {
+      return product;
+    }
+
+    const visible = state.visibilityOverrides.get(key) !== false;
+    return Object.assign({}, product, {
+      is_visible: visible,
+      extraction_status: visible ? visibleExtractionStatus(product) : LEGACY_HIDDEN_STATUS
+    });
   }
 
   function normalizeProductImageState(product) {
@@ -377,7 +418,6 @@
       ? products
         .filter((product) => product && product.source_pdf === catalog.sourcePdf)
         .map(normalizeManualProduct)
-        .filter(isVisible)
       : [];
   }
 
@@ -409,8 +449,82 @@
     return `${prefix}/manual-products/${safeSourceStem(catalog.sourcePdf)}.json`;
   }
 
+  async function readProductOrderFromStorage() {
+    return readCatalogListFromStorage(productOrderStorageUrl(), "order");
+  }
+
+  async function readProductVisibilityFromStorage() {
+    if (!config.supabaseUrl) {
+      return {};
+    }
+
+    const response = await fetch(productVisibilityStorageUrl(), { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return {};
+    }
+
+    const payload = await response.json();
+    return hiddenVisibilityOnly(payload && payload.visibility);
+  }
+
+  async function readCatalogListFromStorage(url, field) {
+    if (!config.supabaseUrl) {
+      return [];
+    }
+
+    const response = await fetch(url, { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return [];
+    }
+
+    const payload = await response.json();
+    const values = Array.isArray(payload) ? payload : payload && payload[field];
+    return Array.isArray(values) ? values.filter(Boolean).map(String) : [];
+  }
+
+  function productOrderStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    return `${String(config.supabaseUrl || "").replace(/\/+$/, "")}/storage/v1/object/public/${encodeURIComponent(bucket)}/${encodeStoragePath(productOrderStoragePath())}`;
+  }
+
+  function productOrderStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/product-order/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  function productVisibilityStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    const cacheBust = "v=" + encodeURIComponent(String(Date.now()));
+    return `${String(config.supabaseUrl || "").replace(/\/+$/, "")}/storage/v1/object/public/${encodeURIComponent(bucket)}/${encodeStoragePath(productVisibilityStoragePath())}?${cacheBust}`;
+  }
+
+  function productVisibilityStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/product-visibility/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
   function isVisible(product) {
     return product.is_visible !== false && product.extraction_status !== LEGACY_HIDDEN_STATUS;
+  }
+
+  function visibleExtractionStatus(product) {
+    if (product.source_system === "milana_manual_admin") {
+      return "manual";
+    }
+
+    if (product.extraction_status && product.extraction_status !== LEGACY_HIDDEN_STATUS) {
+      return product.extraction_status;
+    }
+
+    return "ok";
+  }
+
+  function hiddenVisibilityOnly(visibility) {
+    if (!visibility || typeof visibility !== "object" || Array.isArray(visibility)) {
+      return {};
+    }
+
+    return Object.fromEntries(Object.entries(visibility).filter(([, value]) => value === false));
   }
 
   function renderProducts() {

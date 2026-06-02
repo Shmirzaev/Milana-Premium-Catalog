@@ -115,6 +115,21 @@
   position: relative;
 }
 
+.admin-grid .product-card[draggable="true"] {
+  cursor: grab;
+}
+
+.admin-grid .product-card.is-dragging {
+  cursor: grabbing;
+  opacity: 0.62;
+  transform: scale(0.985);
+}
+
+.admin-grid .product-card.is-drop-target {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 .admin-grid .product-card.is-off {
   border-style: dashed;
   background: #f2f1ef;
@@ -139,6 +154,74 @@
   font: 700 10px/1 "Montserrat", Arial, sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  background: rgba(23, 20, 17, 0.82);
+  color: #fff;
+  cursor: grab;
+  font: 800 13px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.move-controls {
+  position: absolute;
+  top: 48px;
+  left: 10px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+  gap: 4px;
+}
+
+.move-controls button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  background: rgba(23, 20, 17, 0.82);
+  color: #fff;
+  cursor: pointer;
+  font: 800 14px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.move-controls button:hover {
+  background: rgba(23, 20, 17, 0.96);
+}
+
+.card-move-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.card-move-actions button {
+  min-height: 30px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font: 800 9px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card-move-actions button:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
 }
 
 .visibility-switch {
@@ -211,7 +294,7 @@
 
 .visibility-badge {
   position: absolute;
-  left: 10px;
+  left: 52px;
   top: 10px;
   z-index: 2;
   padding: 8px 10px;
