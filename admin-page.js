@@ -526,17 +526,27 @@
         state.products.push(created);
         state.products.sort(compareProducts);
       } else {
+        const manualOverlay = hasEditedImage && !state.editing.manual_storage
+          ? await saveManualProductToStorage(imageEditStoragePayload(state.editing, payload))
+          : null;
         const updated = !priceInput.isNumeric
           ? await updateManualProduct(state.editing, payload)
           : state.editing.manual_storage
           ? await updateManualProduct(state.editing, payload)
           : state.editing.local_only
             ? payload
-            : await patchProduct(databasePayload);
+            : await patchProduct(databasePayload).catch((error) => {
+              if (manualOverlay) {
+                console.warn(error);
+                return null;
+              }
+
+              throw error;
+            });
         if (priceInput.isNumeric && !state.editing.manual_storage && state.editing.source_system !== "milana_manual_admin") {
-          await saveOverride(databasePayload);
+          await saveOverride(databasePayload).catch((error) => console.warn(error));
         }
-        Object.assign(state.editing, updated || payload);
+        Object.assign(state.editing, updated || payload, manualOverlay || {});
         if (hasEditedImage) {
           state.editing.image_missing = false;
         }
@@ -587,6 +597,14 @@
       reader.onload = () => resolve(String(reader.result || ""));
       reader.onerror = () => reject(new Error("Picture upload failed."));
       reader.readAsDataURL(file);
+    });
+  }
+
+  function imageEditStoragePayload(product, payload) {
+    return Object.assign({}, product, payload, {
+      extraction_status: payload.is_visible === false ? LEGACY_HIDDEN_STATUS : visibleExtractionStatus(product),
+      manual_storage: true,
+      local_only: false
     });
   }
 
