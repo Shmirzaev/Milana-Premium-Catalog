@@ -45,6 +45,7 @@
   logoutButton.addEventListener("click", logout);
   addProductButton.addEventListener("click", openCreator);
   searchEl.addEventListener("input", applySearch);
+  gridEl.addEventListener("error", handleGridImageError, true);
   gridEl.addEventListener("click", (event) => {
     const visibilityButton = event.target.closest("[data-visibility-id]");
     if (visibilityButton) {
@@ -343,6 +344,7 @@
     const model = escapeHtml(product.model_code || product.product_code || "Model");
     const code = escapeHtml(product.product_code || product.model_code || "");
       const image = resolveImageUrl(product);
+      const imageFallbacks = image ? adminImageFallbacks(product, image) : [];
       const price = escapeHtml(formatPrice(product.price, product.currency));
       const visible = isVisible(product);
       return `
@@ -360,7 +362,7 @@
             <span class="switch-knob" aria-hidden="true"></span>
           </button>
           <div class="product-image">
-            ${image ? `<img src="${escapeAttribute(image)}" alt="${model}" loading="lazy">` : '<div class="missing-image">No image</div>'}
+            ${image ? `<img src="${escapeAttribute(image)}" alt="${model}" loading="lazy" data-fallback-srcs="${escapeAttribute(JSON.stringify(imageFallbacks))}">` : '<div class="missing-image">No image</div>'}
           </div>
           <div class="product-info">
             <div class="model-row">
@@ -1102,14 +1104,90 @@
     const marker = "/outputs/catalog_processing/";
     const markerIndex = normalized.indexOf(marker);
     if (markerIndex >= 0) {
-      return "outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length);
+      return deployedImagePath("outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length));
     }
 
     if (normalized.startsWith("outputs/")) {
-      return normalized;
+      return deployedImagePath(normalized);
     }
 
     return "covers/milana-products-in-stock-en.png";
+  }
+
+  function deployedImagePath(value) {
+    return String(value || "").replace(
+      "outputs/catalog_processing/images/latest/",
+      "outputs/catalog_processing/storage_images/latest/"
+    );
+  }
+
+  function adminImageFallbacks(product, currentImage) {
+    return uniqueValues([
+      deployedImagePath(currentImage),
+      derivedLocalImageUrl(product),
+      product.image_url,
+      "covers/milana-products-in-stock-en.png"
+    ]).filter((value) => value !== currentImage);
+  }
+
+  function derivedLocalImageUrl(product) {
+    const stem = safeSourceStem(product.source_pdf);
+    const page = padNumber(product.page);
+    const card = padNumber(product.card_index);
+    if (!stem || !page || !card) {
+      return "";
+    }
+
+    return `outputs/catalog_processing/storage_images/latest/${stem}_p${page}_c${card}.jpg`;
+  }
+
+  function padNumber(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number <= 0) {
+      return "";
+    }
+
+    return String(Math.trunc(number)).padStart(3, "0");
+  }
+
+  function handleGridImageError(event) {
+    const img = event.target instanceof HTMLImageElement ? event.target : null;
+    if (!img) {
+      return;
+    }
+
+    const fallbacks = readImageFallbacks(img);
+    if (!fallbacks.length) {
+      return;
+    }
+
+    const next = fallbacks.shift();
+    img.dataset.fallbackSrcs = JSON.stringify(fallbacks);
+    if (next && img.src !== next) {
+      img.src = next;
+    }
+  }
+
+  function readImageFallbacks(img) {
+    try {
+      const values = JSON.parse(img.dataset.fallbackSrcs || "[]");
+      return Array.isArray(values) ? values.filter(Boolean) : [];
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function uniqueValues(values) {
+    const seen = new Set();
+    return values.filter((value) => {
+      const clean = String(value || "").trim();
+      if (!clean || seen.has(clean)) {
+        return false;
+      }
+
+      seen.add(clean);
+      return true;
+    });
   }
 
   function safeSourceStem(value) {
