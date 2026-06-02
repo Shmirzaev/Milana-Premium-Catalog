@@ -182,26 +182,14 @@
       throw new Error((error && error.message) || "Main catalog products could not be loaded.");
     }
 
-    const supabaseByKey = new Map(supabaseProducts.map((product) => [productKey(product), product]));
     const mergedKeys = new Set();
 
-    state.products = localProducts.map((product) => {
-      mergedKeys.add(productKey(product));
-      const supabaseProduct = supabaseByKey.get(productKey(product));
-      if (!supabaseProduct) {
-        return product;
-      }
-
-      return normalizeProductImageState(Object.assign({}, product, supabaseProduct, {
-        local_only: false
-      }));
-    });
-
-    supabaseProducts.forEach((product) => {
+    state.products = (supabaseProducts.length ? supabaseProducts : localProducts).map((product) => {
       const key = productKey(product);
-      if (!mergedKeys.has(key)) {
-        state.products.push(normalizeProductImageState(Object.assign({}, product, { local_only: false })));
-      }
+      mergedKeys.add(key);
+      return normalizeProductImageState(Object.assign({}, product, {
+        local_only: !supabaseProducts.length
+      }));
     });
     manualProducts.forEach((product) => {
       const key = productKey(product);
@@ -1070,54 +1058,54 @@
 
   async function toggleVisibility(key) {
     const product = state.products.find((item) => productKey(item) === String(key));
-    if (!product) {
+    if (!product || product.saving_visibility) {
       return;
     }
 
     const nextVisible = !isVisible(product);
     const payload = { is_visible: nextVisible };
+    state.visibilityOverrides.set(key, nextVisible);
     Object.assign(product, {
       is_visible: nextVisible,
       extraction_status: nextVisible ? visibleExtractionStatus(product) : LEGACY_HIDDEN_STATUS,
-      saving_visibility: true
+      saving_visibility: false
     });
-    renderProducts();
+    applySearch();
+    persistVisibilityChange(product, key, payload, nextVisible).catch((error) => {
+      console.warn(error);
+      showStatus(error.message || "Visibility is changed on screen, but the saved state could not be updated.");
+    });
+  }
 
-    try {
-      state.visibilityOverrides.set(key, nextVisible);
-      await writeProductVisibilityToStorage();
+  async function persistVisibilityChange(product, key, payload, nextVisible) {
+    await writeProductVisibilityToStorage();
 
-      if (product.manual_storage) {
-        const updated = await updateManualProduct(product, legacyVisibilityPayload(payload, product));
-        Object.assign(product, updated || payload, { saving_visibility: false });
-      } else {
-        const manualOverlay = await saveManualProductToStorage(visibilityStoragePayload(product, nextVisible));
-        Object.assign(product, manualOverlay, { saving_visibility: false });
-        if (!product.local_only) {
-          try {
-            const updated = await patchProduct(payload, product);
-            Object.assign(product, updated || {}, manualOverlay, { saving_visibility: false });
-          } catch (error) {
-            console.warn(error);
-          }
-        }
-      }
-
-      if (!product.manual_storage && product.source_system !== "milana_manual_admin") {
+    if (product.manual_storage) {
+      const updated = await updateManualProduct(product, legacyVisibilityPayload(payload, product));
+      Object.assign(product, updated || payload, { saving_visibility: false });
+    } else {
+      const manualOverlay = await saveManualProductToStorage(visibilityStoragePayload(product, nextVisible));
+      Object.assign(product, manualOverlay, { saving_visibility: false });
+      if (!product.local_only) {
         try {
-          await saveOverride(payload, product);
+          const updated = await patchProduct(payload, product);
+          Object.assign(product, updated || {}, manualOverlay, { saving_visibility: false });
         } catch (error) {
           console.warn(error);
         }
       }
-
-      Object.assign(product, applyVisibilityOverride(product), { saving_visibility: false });
-      applySearch();
-    } catch (error) {
-      showStatus(error.message || "Visibility could not be changed.");
-      Object.assign(product, applyVisibilityOverride(product), { saving_visibility: false });
-      applySearch();
     }
+
+    if (!product.manual_storage && product.source_system !== "milana_manual_admin") {
+      try {
+        await saveOverride(payload, product);
+      } catch (error) {
+        console.warn(error);
+      }
+    }
+
+    Object.assign(product, applyVisibilityOverride(product), { saving_visibility: false });
+    applySearch();
   }
 
   function productSelectColumns(includeVisibilityColumn = true, includeMaterialColumn = true) {
