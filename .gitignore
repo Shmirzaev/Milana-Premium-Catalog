@@ -7,3 +7,6 @@ incoming_pdfs/*
 
 outputs/*
 !outputs/.gitkeep
+!outputs/catalog_processing/
+outputs/catalog_processing/*
+!outputs/catalog_processing/milana_products_latest.json

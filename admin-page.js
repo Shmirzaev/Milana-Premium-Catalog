@@ -143,8 +143,19 @@
 
   async function loadProducts() {
     showStatus("Loading products...");
-    const localProducts = await readProductsFromLocalJson().catch(() => []);
-    const supabaseProducts = await readProductsFromSupabase().catch(() => []);
+    const [localResult, supabaseResult, manualResult] = await Promise.allSettled([
+      readProductsFromLocalJson(),
+      readProductsFromSupabase(),
+      readManualProductsFromStorage()
+    ]);
+    const localProducts = localResult.status === "fulfilled" ? localResult.value : [];
+    const supabaseProducts = supabaseResult.status === "fulfilled" ? supabaseResult.value : [];
+    const manualProducts = manualResult.status === "fulfilled" ? manualResult.value : [];
+    if (!localProducts.length && !supabaseProducts.length) {
+      const error = supabaseResult.status === "rejected" ? supabaseResult.reason : localResult.reason;
+      throw new Error((error && error.message) || "Main catalog products could not be loaded.");
+    }
+
     const supabaseByKey = new Map(supabaseProducts.map((product) => [productKey(product), product]));
     const mergedKeys = new Set();
 
@@ -166,7 +177,6 @@
         state.products.push(normalizeProductImageState(Object.assign({}, product, { local_only: false })));
       }
     });
-    const manualProducts = await readManualProductsFromStorage().catch(() => []);
     manualProducts.forEach((product) => {
       const key = productKey(product);
       const existingIndex = state.products.findIndex((item) => productKey(item) === key);
@@ -181,7 +191,11 @@
     state.products = removeCatalog4ImagePlaceholders(state.products);
     state.products.sort(compareProducts);
     state.filtered = state.products.slice();
-    hideStatus();
+    if (!supabaseProducts.length && localProducts.length) {
+      showStatus("Loaded from deployed catalog backup. Supabase product reads need schema/policy repair.");
+    } else {
+      hideStatus();
+    }
     renderProducts();
   }
 
