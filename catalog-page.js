@@ -544,7 +544,7 @@
     const imageFallbacks = productImageFallbacks(product);
     const fullImage = imageFallbacks[1] || imageFallbacks[0];
     const cardImage = imageFallbacks[0];
-    const srcset = buildCardSrcset(product);
+    const srcset = isSupabaseImageUrl(cardImage) ? buildCardSrcset(product) : "";
     const loading = index < EAGER_IMAGE_COUNT ? "eager" : "lazy";
     const fetchPriority = index < HIGH_PRIORITY_IMAGE_COUNT ? "high" : "low";
     const price = escapeHtml(formatPrice(product.price, product.currency));
@@ -714,10 +714,19 @@
       return "";
     }
 
+    const localImage = localProductImageUrl(product) || derivedLocalImageUrl(product, "storage_images");
+    if (localImage) {
+      return localImage;
+    }
+
     if (product.image_url) {
       return product.image_url;
     }
 
+    return "covers/milana-products-in-stock-en.png";
+  }
+
+  function localProductImageUrl(product) {
     const rawPath = product.image_path || "";
     const normalized = String(rawPath).replace(/\\/g, "/");
     const marker = "/outputs/catalog_processing/";
@@ -730,7 +739,7 @@
       return normalized;
     }
 
-    return "covers/milana-products-in-stock-en.png";
+    return "";
   }
 
   function resolveCardImageUrl(product, width) {
@@ -743,11 +752,12 @@
     }
 
     return uniqueValues([
-      supabaseRenderImageUrl(product, DEFAULT_CARD_IMAGE_WIDTH),
-      resolveImageUrl(product),
-      localStorageImageUrl(product),
       derivedLocalImageUrl(product, "storage_images"),
       derivedLocalImageUrl(product, "images"),
+      localProductImageUrl(product),
+      localStorageImageUrl(product),
+      supabaseRenderImageUrl(product, DEFAULT_CARD_IMAGE_WIDTH),
+      product.image_url,
       "covers/milana-products-in-stock-en.png"
     ]);
   }
@@ -760,10 +770,12 @@
     return uniqueValues([
       derivedLocalImageUrl(product, "images"),
       derivedLocalImageUrl(product, "storage_images"),
+      localProductImageUrl(product),
+      localStorageImageUrl(product),
       resolveImageUrl(product),
       supabaseRenderImageUrl(product, 1600, 92),
       supabaseRenderImageUrl(product, 1200, 92),
-      localStorageImageUrl(product),
+      product.image_url,
       "covers/milana-products-in-stock-en.png"
     ]);
   }
@@ -796,6 +808,10 @@
       resize: "contain"
     });
     return `${baseUrl}/storage/v1/render/image/public/${encodeURIComponent(storageRef.bucket)}/${encodeStoragePath(storageRef.path)}?${params}`;
+  }
+
+  function isSupabaseImageUrl(value) {
+    return String(value || "").includes("/storage/v1/");
   }
 
   function localStorageImageUrl(product) {
