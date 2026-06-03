@@ -48,7 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
-  const LOCAL_IMAGE_VERSION = "20260603-tj2124-final";
+  const LOCAL_IMAGE_VERSION = "20260603-catalog123-images";
   const state = {
     products: [],
     filtered: [],

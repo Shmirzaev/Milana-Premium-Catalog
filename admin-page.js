@@ -8,7 +8,7 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
-  const LOCAL_IMAGE_VERSION = "20260603-tj2124-final";
+  const LOCAL_IMAGE_VERSION = "20260603-catalog123-images";
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];

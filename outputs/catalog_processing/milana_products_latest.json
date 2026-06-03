@@ -16,12 +16,13 @@
     "native_text": "120001\n1517\n4.5 $",
     "ocr_text": "MIL>N>\nM\nPREMIUM\nWtanenb\nMODEL\nMR-12001\nCODE\nV-1517\n48\n50\n52\n54\n56\n4.5 S",
     "combined_text": "MIL>N>\nM\nPREMIUM\nWtanenb\nMODEL\nMR-12001\nCODE\nV-1517\n48\n50\n52\n54\n56\n4.5 S\n120001\n1517\n4.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p002_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p002_c001.jpg",
     "image_sha256": "394e208f26cdef9f617506d955b409f09971b9dc5c3953ea6f57043a91697059",
     "image_fingerprint": "phash:efa6963c499398c8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p002_c001.json",
-    "embedding_preview": "[0.0026858, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.888e-05, 2.888e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.0026858, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.888e-05, 2.888e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -40,12 +41,13 @@
     "native_text": "120001\n1516\n4.5 $",
     "ocr_text": "VNVII\nPREMIUM\nWtanenb\nITaHeAb IAH HerO\nMODEL\nR-12001\nCODE\nV-1516\n48\n50\n52\n如\n56\n4.5 S",
     "combined_text": "VNVII\nPREMIUM\nWtanenb\nITaHeAb IAH HerO\nMODEL\nR-12001\nCODE\nV-1516\n48\n50\n52\n如\n56\n4.5 S\n120001\n1516\n4.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p002_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p002_c002.jpg",
     "image_sha256": "d42a60925e4d6d1f96e2f3dea6eb30acca3897a72a4ec8ea45e484fe15154dbd",
     "image_fingerprint": "phash:e48f86c83929dbd8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p002_c002.json",
-    "embedding_preview": "[0.01749914, 0.01228305, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0107687, 0.0, 0.0]"
+    "embedding_preview": "[0.01749914, 0.01228305, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0107687, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -64,12 +66,13 @@
     "native_text": "120001\n1515\n4.5 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nITaHeAb IAH HerO\nMODEL\nMR-12001\nCODE\nV-1515\n48\n50\n52\n54\n56\n4.5 S",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nITaHeAb IAH HerO\nMODEL\nMR-12001\nCODE\nV-1515\n48\n50\n52\n54\n56\n4.5 S\n120001\n1515\n4.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p003_c001.png",
-    "image_sha256": "13974dfc07a3467c55560f6fbc78ab510da4b5d12245a78215d6dc09cf511d89",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p003_c001.jpg",
+    "image_sha256": "6739f0a75dcdd4b4b97d0da7e13852afbd09d512e2df7127843bf16cbe55b1a4",
     "image_fingerprint": "phash:eaa5a77e026516e1",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p003_c001.json",
-    "embedding_preview": "[0.00752974, 0.00011366, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00011366, 0.0, 0.0]"
+    "embedding_preview": "[0.00752974, 0.00011366, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00011366, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -88,12 +91,13 @@
     "native_text": "120001\n1514\n4.5 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nMR-12001\nCODE\nV-1514\n48\n50\n52\n54\n56\n4.5 S",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nMR-12001\nCODE\nV-1514\n48\n50\n52\n54\n56\n4.5 S\n120001\n1514\n4.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p003_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p003_c002.jpg",
     "image_sha256": "b0199116f80b1cf24112de1243d2a1c5ad97cc66351fd399683e93d9fec228a8",
     "image_fingerprint": "phash:eea5665a43875c52",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p003_c002.json",
-    "embedding_preview": "[0.00117768, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.00117768, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -112,12 +116,13 @@
     "native_text": "2061\n1156\n6.8 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nTJ-2061\nCODE\nV-1156\n50\n52\n54\n56\n58\n60\n6.8 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nTJ-2061\nCODE\nV-1156\n50\n52\n54\n56\n58\n60\n6.8 S\n2061\n1156\n6.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p005_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p005_c001.jpg",
     "image_sha256": "746e518f1f26f5bf8bbc8afe6dee153e81a721027bf08560d341ea34e35a2c06",
     "image_fingerprint": "phash:a68ddbd6980f8949",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p005_c001.json",
-    "embedding_preview": "[0.00198525, 7.941e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.97e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.00198525, 7.941e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.97e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -136,12 +141,13 @@
     "native_text": "1016\n1162\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nPJ-1016\nCODE\nV-1162\n46\n48\n50\n52\n54\n56\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nPJ-1016\nCODE\nV-1162\n46\n48\n50\n52\n54\n56\n7.3 S\n1016\n1162\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p005_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p005_c002.jpg",
     "image_sha256": "58db52236dbd98feaf91083efa775f8225619ae4d3f8adbcee2596e9a62947c0",
     "image_fingerprint": "phash:ae06f333874ccc8d",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p005_c002.json",
-    "embedding_preview": "[0.00258584, 4.31e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 8.619e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.00258584, 4.31e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 8.619e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -160,12 +166,13 @@
     "native_text": "2045\n1310\n6.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL-\nTJ-2045\nCODE\nV-1310\n46\n48\n50\n52\n54\n6.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL-\nTJ-2045\nCODE\nV-1310\n46\n48\n50\n52\n54\n6.3 S\n2045\n1310\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p006_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p006_c001.jpg",
     "image_sha256": "edeb38cc3d7a3e1afda5af67460c50839cffd41167b92faabf6939041040772c",
     "image_fingerprint": "phash:b207667ca70799d8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p006_c001.json",
-    "embedding_preview": "[0.00432446, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.574e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.00432446, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.574e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -184,12 +191,13 @@
     "native_text": "2045\n1312\n6.3 $",
     "ocr_text": "MILANA\nHOME AND SLEEP WEAR\nWtanenb\nMODEL\nTJ-2045\nCODE\nV-1312\n46\n48\n52\n54\n6.3 S",
     "combined_text": "MILANA\nHOME AND SLEEP WEAR\nWtanenb\nMODEL\nTJ-2045\nCODE\nV-1312\n46\n48\n52\n54\n6.3 S\n2045\n1312\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p006_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p006_c002.jpg",
     "image_sha256": "1d3ba59837bf6ceb5543b20ba41c271a5d93f395a0fda18190626a6f834548d2",
     "image_fingerprint": "phash:e6b3c3861e4bc13c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p006_c002.json",
-    "embedding_preview": "[0.01016278, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.01016278, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -208,12 +216,13 @@
     "native_text": "2045\n1419\n6.3 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEI\nTJ-2045\nCODE\nV-1419\n46\n48\n50\n52\n54\n6.3 S",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEI\nTJ-2045\nCODE\nV-1419\n46\n48\n50\n52\n54\n6.3 S\n2045\n1419\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p007_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p007_c001.jpg",
     "image_sha256": "08f118230e0bdca09ed53220584b324a3db220a75d932f801b7bc558e12caa4c",
     "image_fingerprint": "phash:f6a723d2078b9c4c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p007_c001.json",
-    "embedding_preview": "[0.00711474, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.931e-05, 0.0]"
+    "embedding_preview": "[0.00711474, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.931e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -232,12 +241,13 @@
     "native_text": "6.3 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2046\nCODE\nV-1467\n46\n8\n52\n54\n6.3 S",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2046\nCODE\nV-1467\n46\n8\n52\n54\n6.3 S\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p007_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p007_c002.jpg",
     "image_sha256": "5f83bdef065c09a2c66b56ac74fe893002e82d808f0409d3a50a9a3b4690b680",
     "image_fingerprint": "phash:cca7629c16cb9999",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p007_c002.json",
-    "embedding_preview": "[0.01315493, 0.00076187, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00020316, 0.00025396, 0.0, 0.0]"
+    "embedding_preview": "[0.01315493, 0.00076187, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00020316, 0.00025396, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -256,12 +266,13 @@
     "native_text": "2053\n1451\n6.3 $",
     "ocr_text": "VNVTIW\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1451\n46\n49\n5..52.\n54\n6.3 S",
     "combined_text": "VNVTIW\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1451\n46\n49\n5..52.\n54\n6.3 S\n2053\n1451\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p008_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p008_c001.jpg",
     "image_sha256": "764a9652af62076b1bea36b548460ba245d408dddca903dfe6ea02185fb72be0",
     "image_fingerprint": "phash:ee96a3d81649d91c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p008_c001.json",
-    "embedding_preview": "[0.0250379, 0.00361598, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00416385, 0.0, 0.0]"
+    "embedding_preview": "[0.0250379, 0.00361598, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00416385, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -280,12 +291,13 @@
     "native_text": "2065\n1456\n6.3 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2065\nCODE\nV-1456\n46\n48\n5\n52\n54\n6.3 S",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2065\nCODE\nV-1456\n46\n48\n5\n52\n54\n6.3 S\n2065\n1456\n6.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p008_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p008_c002.jpg",
     "image_sha256": "2a7a4499d117e8ed157206c4c9eaed3dc529ec03ab97bb2654e83ebb0fc87e40",
     "image_fingerprint": "phash:f29323338766ce4c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p008_c002.json",
-    "embedding_preview": "[0.03468849, 0.00017759, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00017759, 0.0, 0.0]"
+    "embedding_preview": "[0.03468849, 0.00017759, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00017759, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -304,12 +316,13 @@
     "native_text": "2053\n1454\n6.1 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1454\n46\n48\n50\n52\n54\n6.1$",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1454\n46\n48\n50\n52\n54\n6.1$\n2053\n1454\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p009_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p009_c001.jpg",
     "image_sha256": "51310095c1107d96abdf8f84ccd8e7dbb9dfe3c6ba1d078049872d1c2fe00196",
     "image_fingerprint": "phash:d5d52af214ae9c4c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p009_c001.json",
-    "embedding_preview": "[0.02454102, 5.761e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00743143, 0.00190106, 0.0, 0.0]"
+    "embedding_preview": "[0.02454102, 5.761e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00743143, 0.00190106, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -328,12 +341,13 @@
     "native_text": "2053\n1448\n6.1 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL-\nTJ-2053\nCODE\nV-1448\n46\n48\n50\n52\n54\n6.1S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL-\nTJ-2053\nCODE\nV-1448\n46\n48\n50\n52\n54\n6.1S\n2053\n1448\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p009_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p009_c002.jpg",
     "image_sha256": "9d8e1b29b2949f2accf8bc98d9c2f69bb888ce7124b53ffd566b68ba4407a44e",
     "image_fingerprint": "phash:b2476d649e0b9ad8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p009_c002.json",
-    "embedding_preview": "[0.01150202, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00010002, 0.0, 0.0]"
+    "embedding_preview": "[0.01150202, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00010002, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -352,12 +366,13 @@
     "native_text": "2053\n1452\n6.1 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL\nTJ-2053\nCODE\nV-1452\n46\n48\n50\n52\n54\n6.1$",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\n-MODEL\nTJ-2053\nCODE\nV-1452\n46\n48\n50\n52\n54\n6.1$\n2053\n1452\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p010_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p010_c001.jpg",
     "image_sha256": "8942832c312a4965c9cc2d93d744124a90f29ded24c4aef5ff73451eebeac444",
     "image_fingerprint": "phash:b3072e6cb60799d8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p010_c001.json",
-    "embedding_preview": "[0.00826826, 0.00070871, 0.0008032, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.449e-05, 0.00146466, 0.00137017]"
+    "embedding_preview": "[0.00826826, 0.00070871, 0.0008032, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 9.449e-05, 0.00146466, 0.00137017]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -376,12 +391,13 @@
     "native_text": "2053\n1450\n6.1 $",
     "ocr_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1450\n46\n48\n5\n52\n54\n6.1$",
     "combined_text": "MIL>N>\nPREMIUM\nWtanenb\nMODEL\nTJ-2053\nCODE\nV-1450\n46\n48\n5\n52\n54\n6.1$\n2053\n1450\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p010_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p010_c002.jpg",
     "image_sha256": "886917dc63f8f78a4864163efe280df2b7de8fdd6fcddc7879b80609281fcff0",
     "image_fingerprint": "phash:f59722e20e3d9859",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p010_c002.json",
-    "embedding_preview": "[0.03295538, 0.00010125, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00035436, 0.00015187, 0.0, 0.0]"
+    "embedding_preview": "[0.03295538, 0.00010125, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00035436, 0.00015187, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -400,12 +416,13 @@
     "native_text": "13001\n1618\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1618\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1618\n44\n46\n48\n50\n52\n7.3 S\n13001\n1618\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p012_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p012_c001.jpg",
     "image_sha256": "c4beae911a3d16fb3421701f5c6be3c70577450e7d2ae1607226fa6377c506a2",
     "image_fingerprint": "phash:e68dda329b68990b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p012_c001.json",
-    "embedding_preview": "[0.0004863, 3.474e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.947e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.0004863, 3.474e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.947e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -424,12 +441,13 @@
     "native_text": "1619\n7.3 $",
     "ocr_text": "HILAN\nPREMIUM\nWtanenb\nHOHIL\nKJ-13001\nCODE\nV-1619\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "HILAN\nPREMIUM\nWtanenb\nHOHIL\nKJ-13001\nCODE\nV-1619\n44\n46\n48\n50\n52\n7.3 S\n1619\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p012_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p012_c002.jpg",
     "image_sha256": "1938b94e46e1db3a47a63eef537cf3ff9e60f62fe06c3b4cc4f064e8d70a6220",
     "image_fingerprint": "phash:e687b2168b788d1b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p012_c002.json",
-    "embedding_preview": "[0.00151607, 0.00027212, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00011662, 0.0, 0.0]"
+    "embedding_preview": "[0.00151607, 0.00027212, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00011662, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -448,12 +466,13 @@
     "native_text": "13001\n1615\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1615\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1615\n44\n46\n48\n50\n52\n7.3 S\n13001\n1615\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p013_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p013_c001.jpg",
     "image_sha256": "0baeab8c3391b8ea999a1cdc479176e22fd9a861cbd1a4e653cb9b5c412ee07b",
     "image_fingerprint": "phash:ec97b21683d99919",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p013_c001.json",
-    "embedding_preview": "[0.00103497, 3.569e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021413, 3.569e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.00103497, 3.569e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021413, 3.569e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -472,12 +491,13 @@
     "native_text": "13001\n1634\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1634\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL-\nKJ-13001\nCODE\nV-1634\n44\n46\n48\n50\n52\n7.3 S\n13001\n1634\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p013_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p013_c002.jpg",
     "image_sha256": "3b5200bf4a8be0b5e319bd2ec308d88464ad888a817f3173f434e5294eb84aa4",
     "image_fingerprint": "phash:fe06a446a758939b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p013_c002.json",
-    "embedding_preview": "[0.0011573, 7.466e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.733e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.0011573, 7.466e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.733e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -496,12 +516,13 @@
     "native_text": "13002\n1620\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nKJ-13002\nCODE\nV-1620\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nKJ-13002\nCODE\nV-1620\n44\n46\n48\n50\n52\n7.3 S\n13002\n1620\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p014_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p014_c001.jpg",
     "image_sha256": "7ea31ea73a0a051eb6026b3b5408d013ff868776cc415eccdf3d241e5f474370",
     "image_fingerprint": "phash:be87e42487589b1b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p014_c001.json",
-    "embedding_preview": "[0.0031989, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00027817, 9.272e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.0031989, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00027817, 9.272e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -520,12 +541,13 @@
     "native_text": "13002\n1623\n7.3 $",
     "ocr_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nKJ-13002\nCODE\nV-1623\n44\n46\n48\n50\n52\n7.3 S",
     "combined_text": "VNVIIW\nPREMIUM\nWtanenb\nMODEL\nKJ-13002\nCODE\nV-1623\n44\n46\n48\n50\n52\n7.3 S\n13002\n1623\n7.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\01_Staple_Model_Catalog_p014_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\01_Staple_Model_Catalog_p014_c002.jpg",
     "image_sha256": "9ac441c902784b702b072eacc83a8ed9cd320fd0ea2c6fd5d7f444b6284b2a56",
     "image_fingerprint": "phash:e6999a469b718d25",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\01_Staple_Model_Catalog_p014_c002.json",
-    "embedding_preview": "[0.0017352, 4.566e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.566e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.0017352, 4.566e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.566e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -544,12 +566,13 @@
     "native_text": "2114\n7.8 $",
     "ocr_text": "MILANA\nPREMIUM\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\nMODEL\nHM-11502\nCODE\nV-2114\n48\n50\n52\n54\n56\n7.8 S",
     "combined_text": "MILANA\nPREMIUM\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\nMODEL\nHM-11502\nCODE\nV-2114\n48\n50\n52\n54\n56\n7.8 S\n2114\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p001_c001.png",
-    "image_sha256": "92cb66103aa4e639ab01cf46465e90211744665879f8bab1fdf933b00cf2edbd",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p001_c001.jpg",
+    "image_sha256": "3bb4b6b350468c9f274bfcaf2d314add56456bf898cf2a28325eb2661249c809",
     "image_fingerprint": "phash:ea87977a91399198",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p001_c001.json",
-    "embedding_preview": "[0.04036772, 0.00147491, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00032063, 0.0, 0.0]"
+    "embedding_preview": "[0.04036772, 0.00147491, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00032063, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -568,12 +591,13 @@
     "native_text": "2116\n7.8 $",
     "ocr_text": "MILANA\nPREMIUM\nByXHTKa\nCOTT0N60%\nPOLYESTR 40%\nMODEL\nHM-11502\nCODE\nV-2116\n48\n50\n527\n56\n7.8 S",
     "combined_text": "MILANA\nPREMIUM\nByXHTKa\nCOTT0N60%\nPOLYESTR 40%\nMODEL\nHM-11502\nCODE\nV-2116\n48\n50\n527\n56\n7.8 S\n2116\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p001_c002.png",
-    "image_sha256": "ddf2b7707a4c6991b278f6387d53fccd125f39c20d0618ba022961d5e8d9a714",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p001_c002.jpg",
+    "image_sha256": "364a1275eb4a8ee2e60cfe1b9805b629b01360b7f74532a577c2ba8f4fc518eb",
     "image_fingerprint": "phash:ee86945a5aadd889",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p001_c002.json",
-    "embedding_preview": "[0.01264552, 0.00146154, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01178766, 6.355e-05, 0.0]"
+    "embedding_preview": "[0.01264552, 0.00146154, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01178766, 6.355e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -592,12 +616,13 @@
     "native_text": "2115\n7.8 $",
     "ocr_text": "MIL>N>\nPREMIUM\nByXHNTKa\n60%XnonoK\n40%on3ctep\nMODEL\nHM-11502\nCODE\nV-2115\n46\n48\n5\n52\n54\n56\n7.8 S",
     "combined_text": "MIL>N>\nPREMIUM\nByXHNTKa\n60%XnonoK\n40%on3ctep\nMODEL\nHM-11502\nCODE\nV-2115\n46\n48\n5\n52\n54\n56\n7.8 S\n2115\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p002_c001.png",
-    "image_sha256": "858994fac105202527adb4694caefe65a333839d6104344e2eed765e37b5be52",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p002_c001.jpg",
+    "image_sha256": "19ad75213895e8751653a310f99ec848c5f65638048ce0c086e1ac4f21b6fd97",
     "image_fingerprint": "phash:ee86e4d81a9999b1",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p002_c001.json",
-    "embedding_preview": "[0.01622639, 9.116e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.558e-05, 9.116e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.01622639, 9.116e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.558e-05, 9.116e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -616,12 +641,13 @@
     "native_text": "SUPREM\nCOTTON 92%\nLYCRA 8%\n2107\n5.3 $",
     "ocr_text": "MILANA\nPREMIUM\nSUPREM\nCOTTON92%\nLYCRA 8%\nMODEL\nAUTHENTIC\nMF-9006\nCODE\nV-2107\n48\n50\n52\n54\n56\n5.3 S",
     "combined_text": "MILANA\nPREMIUM\nSUPREM\nCOTTON92%\nLYCRA 8%\nMODEL\nAUTHENTIC\nMF-9006\nCODE\nV-2107\n48\n50\n52\n54\n56\n5.3 S\nCOTTON 92%\n2107\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p002_c002.png",
-    "image_sha256": "2b1b7c2bd6d04f398ee8f2b69adc4f62ae52ae15a4a1d2b97e701d51f9255b08",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p002_c002.jpg",
+    "image_sha256": "62674e8434fa8f79161e1ebcf318d7a79fd9e7a82e7a84c8104212d5460079f8",
     "image_fingerprint": "phash:fe87d23b293cd0c0",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p002_c002.json",
-    "embedding_preview": "[0.17097504, 0.51191761, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00319046, 0.0, 0.0]"
+    "embedding_preview": "[0.17097504, 0.51191761, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00319046, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -640,12 +666,13 @@
     "native_text": "COTTON 72.5%\nPOLYESTER 22.5%\nLYCRA\n5 %\n2037\n9.3 $",
     "ocr_text": "MIL>N\nPREMIUM\nCOTTON\n72.5%\nPOLYESTER 22.5%\nLYCRA\n5%\nEVOLUTION\nMODEL\nMK-18001\n3003\nV-2037\n48\n50\n,.5\n56\n9.3 S",
     "combined_text": "MIL>N\nPREMIUM\nCOTTON\n72.5%\nPOLYESTER 22.5%\nLYCRA\n5%\nEVOLUTION\nMODEL\nMK-18001\n3003\nV-2037\n48\n50\n,.5\n56\n9.3 S\nCOTTON 72.5%\n5 %\n2037\n9.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p002_c003.png",
-    "image_sha256": "7b8baea71a13eb4ef22d6ee10dc3ed05b643aa8419590189b770a92ac501f698",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p002_c003.jpg",
+    "image_sha256": "a73ec5b677e1c49e0872d1019be6d53aa63f28824d6b194cff73453859f2b4fe",
     "image_fingerprint": "phash:e78a9c969c6b6264",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p002_c003.json",
-    "embedding_preview": "[0.46553304, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.46553304, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -664,12 +691,13 @@
     "native_text": "COTTON 60%\nPOLYESTR 40%\n1974\n9.8 $",
     "ocr_text": "MIL>N\nPREMIUM\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\nENZM\nMODEL\nMK-18002\nCODE\nV-1974\n48\n5\n56\n9.8 S",
     "combined_text": "MIL>N\nPREMIUM\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\nENZM\nMODEL\nMK-18002\nCODE\nV-1974\n48\n5\n56\n9.8 S\nCOTTON 60%\n1974\n9.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p002_c004.png",
-    "image_sha256": "e2d1a7a4715ac97173a99fd73ca8d16fdd988b95ee5265d8f64cbce9fdd4cbf5",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p002_c004.jpg",
+    "image_sha256": "586419dbe6626c08221b5f5937674f8e41dc3b3f809f794cc0ae70d869d5895c",
     "image_fingerprint": "phash:e7c49e929a296761",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p002_c004.json",
-    "embedding_preview": "[0.05131053, 0.000621, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.05131053, 0.000621, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -688,12 +716,13 @@
     "native_text": "2109\nCOTTON 60%\nPOLYESTR 40%\n9.3 $",
     "ocr_text": "MILANA\nPREMIUM\nMINIMALISM\nMODEL\nMK-18003\nCODE\nV-2109\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\n9.3 S",
     "combined_text": "MILANA\nPREMIUM\nMINIMALISM\nMODEL\nMK-18003\nCODE\nV-2109\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\n9.3 S\n2109\nCOTTON 60%\n9.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p003_c001.png",
-    "image_sha256": "c7b8a79c0bdfcc549fd2e4fd9ae394c66aae488fa3f2fab1341a020e6d10b228",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p003_c001.jpg",
+    "image_sha256": "4093f4ed84b45e86d8f251df9fb33e9fff373fad6541fbf645279e2cc66313b6",
     "image_fingerprint": "phash:e9ce93a59e4a6261",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p003_c001.json",
-    "embedding_preview": "[0.00691121, 0.00023997, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.4e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.00691121, 0.00023997, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.4e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -712,12 +741,13 @@
     "native_text": "2111\nCOTTON 60%\nPOLYESTR 40%\n9.3 $",
     "ocr_text": "MILANA\nPREMIUM\nMINIMALISM\nMODEL\nMK-18003\nCODE\nV-2111\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N 60%\nPOLYESTR 40%\n9.3 S",
     "combined_text": "MILANA\nPREMIUM\nMINIMALISM\nMODEL\nMK-18003\nCODE\nV-2111\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N 60%\nPOLYESTR 40%\n9.3 S\n2111\nCOTTON 60%\n9.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p003_c002.png",
-    "image_sha256": "7f5a94c9c1b52e6485090ce1839b1a0ddd21a1cc59ff62f1e0abb25f7359fd7f",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p003_c002.jpg",
+    "image_sha256": "b1f472836a36ea4a45426c14d5b27b1cb199f5b103807a178b1a16f2addf4acf",
     "image_fingerprint": "phash:ac9ec1c4133bca7c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p003_c002.json",
-    "embedding_preview": "[0.00280306, 0.03181847, 0.01156576, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00260103, 0.12341021, 0.0]"
+    "embedding_preview": "[0.00280306, 0.03181847, 0.01156576, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00260103, 0.12341021, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -736,12 +766,13 @@
     "native_text": "2112\nCOTTON 60%\nPOLYESTR 40%\n9.3 $",
     "ocr_text": "MILANA\nPREMIUM\n4/5.8MI.\nCOMMITMENT\nTO SPEED\nMODEI\nMK-18003\nCODE\nV-2112\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\n9.3 S",
     "combined_text": "MILANA\nPREMIUM\n4/5.8MI.\nCOMMITMENT\nTO SPEED\nMODEI\nMK-18003\nCODE\nV-2112\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N60%\nPOLYESTR 40%\n9.3 S\n2112\nCOTTON 60%\n9.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p003_c003.png",
-    "image_sha256": "ff776c9efcf8d897d8eabc3ad6980256ce39ba2fa190faf79ec5716302bdf2ee",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p003_c003.jpg",
+    "image_sha256": "76832f6ddeec5bd410ed11fc3d83cd480d2a8271a3547982b699f47b573c25c3",
     "image_fingerprint": "phash:e7ec9e9618274926",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p003_c003.json",
-    "embedding_preview": "[0.00557115, 0.00059691, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.979e-05, 0.00057701, 0.0]"
+    "embedding_preview": "[0.00557115, 0.00059691, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.979e-05, 0.00057701, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -760,12 +791,13 @@
     "native_text": "2110\nCOTTON 60%\nPOLYESTR 40%\n9.3 $",
     "ocr_text": "MILANA\nPREMIUM\n4/5.8MI.\nCOMMITMENT\nTO SPEED\nMK-18003\nCODE\nV-2110\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N 60%\nPOLYESTR 40%\n9.3 S",
     "combined_text": "MILANA\nPREMIUM\n4/5.8MI.\nCOMMITMENT\nTO SPEED\nMK-18003\nCODE\nV-2110\n48\n50\n52\n54\n56\nByXHNTKa\nCOTT0N 60%\nPOLYESTR 40%\n9.3 S\n2110\nCOTTON 60%\n9.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p003_c004.png",
-    "image_sha256": "c2dc10430752c4a93a325b43edf15c5bf01fc3f984138267ce3d321f3e074a2b",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p003_c004.jpg",
+    "image_sha256": "25fcb7eaecd0cb8433a0b7983a3c09224b312e798681acfd06ff7952f1a00f18",
     "image_fingerprint": "phash:a6e4e41e0725e65e",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p003_c004.json",
-    "embedding_preview": "[0.00736592, 0.0003173, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00024931, 0.00315035, 0.0, 0.0]"
+    "embedding_preview": "[0.00736592, 0.0003173, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00024931, 0.00315035, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -784,12 +816,13 @@
     "native_text": "2095\n5.2 $",
     "ocr_text": "MIL>N\nPREMIUM\nSuprem\n100%COTTON\nMR.\n-MODEL\nΦ-2095\nRIGHT\n48\n50\n52\n,.56\n58\n5.2 S",
     "combined_text": "MIL>N\nPREMIUM\nSuprem\n100%COTTON\nMR.\n-MODEL\nΦ-2095\nRIGHT\n48\n50\n52\n,.56\n58\n5.2 S\n2095\n5.2 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p004_c001.png",
-    "image_sha256": "9f7ee0785ef3aeac8da5bc9e953c5899af6f23cf028276f74cdacbb85684c8e8",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p004_c001.jpg",
+    "image_sha256": "c5c5858221c91815014c2938428d1268f6000c72744329b91c9ee2666ef8cd85",
     "image_fingerprint": "phash:b8f887c48936263f",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p004_c001.json",
-    "embedding_preview": "[0.1702457, 0.02415958, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021162, 0.00035269, 0.0, 0.0]"
+    "embedding_preview": "[0.1702457, 0.02415958, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021162, 0.00035269, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -808,12 +841,13 @@
     "native_text": "SUPREM\nCOTTON 100%\nF-2043\n5.5 $",
     "ocr_text": "",
     "combined_text": "SUPREM\nCOTTON 100%\nF-2043\n5.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p004_c002.png",
-    "image_sha256": "ec46400686737fd7f9190a8d7f4a758b9983495ff782eeed59c54c5f1eea7edc",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p004_c002.jpg",
+    "image_sha256": "400b6aa387c40e44f27ab0e217f83ab60d21346a4372fea2c995cf5cf56cf089",
     "image_fingerprint": "phash:e992b7b5f1684225",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p004_c002.json",
-    "embedding_preview": "[0.03201361, 0.13225148, 0.00169668, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.02094056, 0.04255087, 0.0002679]"
+    "embedding_preview": "[0.03201361, 0.13225148, 0.00169668, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.02094056, 0.04255087, 0.0002679]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -832,12 +866,13 @@
     "native_text": "18023\n5.1 $",
     "ocr_text": "VNV1\nREMIUM\nSuprem\n100%COTTON\nWES\nKEEPWILDNATURE\nMODEL-\nM-18023\n44\n46\n48\n50\n525\n54\n5.1 $",
     "combined_text": "VNV1\nREMIUM\nSuprem\n100%COTTON\nWES\nKEEPWILDNATURE\nMODEL-\nM-18023\n44\n46\n48\n50\n525\n54\n5.1 $\n18023",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p005_c001.png",
-    "image_sha256": "d8f3105310995b2ee9f679f2f83ffe969d99d5b984e6f62625d8cce1f539f8fb",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p005_c001.jpg",
+    "image_sha256": "a0eb4c0e712a3504d5e79514c0cbbb0a7f8930288597a75b5d04c7293ba1b68c",
     "image_fingerprint": "phash:e79fda921229e125",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p005_c001.json",
-    "embedding_preview": "[0.31618521, 0.38741091, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.04343346, 6.463e-05, 0.0]"
+    "embedding_preview": "[0.31618521, 0.38741091, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.04343346, 6.463e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -856,12 +891,13 @@
     "native_text": "18025\n5.1 $",
     "ocr_text": "VNVTIW\nMIUM\nSuprem\n100%COTTON\nSPIRIT\nWEST\nKEEPWILDNATURE\n-MODEL\nM-18025\n44\n46\n48\n50\n52\n54\n5.1$",
     "combined_text": "VNVTIW\nMIUM\nSuprem\n100%COTTON\nSPIRIT\nWEST\nKEEPWILDNATURE\n-MODEL\nM-18025\n44\n46\n48\n50\n52\n54\n5.1$\n18025\n5.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p005_c002.png",
-    "image_sha256": "2188b56c5a38173585fe095d4377d34142155fac99fc3ccdab117bf8eb38e398",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p005_c002.jpg",
+    "image_sha256": "c1d91c3878427f4332dc100d10f4cbbab75de624457e52c41428f469a581dc53",
     "image_fingerprint": "phash:e6de98961a69e129",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p005_c002.json",
-    "embedding_preview": "[0.24099546, 0.27230852, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.057e-05, 0.01580795, 0.0, 0.0]"
+    "embedding_preview": "[0.24099546, 0.27230852, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.057e-05, 0.01580795, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -880,12 +916,13 @@
     "native_text": "18047\n5.1 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\n—MODEL\nM门-18047\n44\n46\n48\n50\n52\n54\nSALE\n5.1 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\n—MODEL\nM门-18047\n44\n46\n48\n50\n52\n54\nSALE\n5.1 S\n18047\n5.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p005_c003.png",
-    "image_sha256": "421ed163c98d3fa0f22a75c2be0e65793386e21029eccf11db7bd5ed12b403f5",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p005_c003.jpg",
+    "image_sha256": "5de10d5b423bf2af8b614eaa518257249b3f48bd9a82d7791f885e55b209353e",
     "image_fingerprint": "phash:e7969a8616e1712b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p005_c003.json",
-    "embedding_preview": "[0.46891222, 0.21624865, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00746973, 0.0, 0.0]"
+    "embedding_preview": "[0.46891222, 0.21624865, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00746973, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -904,12 +941,13 @@
     "native_text": "4.7 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSUPER\nCODE\nMn-18020\n44\n46\n48\n☆\n50\n自\n52\n54\n白白\nM\nSALE\n4.7 S",
     "combined_text": "MIL>N>\nPREMIUM\nSUPER\nCODE\nMn-18020\n44\n46\n48\n☆\n50\n自\n52\n54\n白白\nM\nSALE\n4.7 S\n4.7 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p005_c004.png",
-    "image_sha256": "11b1f2ab858b573f10a92acfa93b94ce1f34d4539a8879fe1d2e45d7ed9716a0",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p005_c004.jpg",
+    "image_sha256": "04f15b3763fd499020afcfaa0aa47fdb142006b65f16395db8da2248d2571fc1",
     "image_fingerprint": "phash:a69edac6ce247825",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p005_c004.json",
-    "embedding_preview": "[0.04552604, 0.15852858, 0.0006359, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01528525, 0.03325544, 0.0]"
+    "embedding_preview": "[0.04552604, 0.15852858, 0.0006359, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01528525, 0.03325544, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -928,12 +966,13 @@
     "native_text": "2997\n7.1 $",
     "ocr_text": "MiL>N>\nPREMIUM\nFrench terry\n95%Cotton\n5%Elastane\nMODEL-\nBM-8008\nCODE\nV-2997\n48\n50\n52\n54\n56\n7.1 $",
     "combined_text": "MiL>N>\nPREMIUM\nFrench terry\n95%Cotton\n5%Elastane\nMODEL-\nBM-8008\nCODE\nV-2997\n48\n50\n52\n54\n56\n7.1 $\n2997",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p006_c001.png",
-    "image_sha256": "9387e803f582ad3a70aa7552ff53c6615985e043c07e6ef2a29cfd59e05cc879",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p006_c001.jpg",
+    "image_sha256": "bb865c2211ad6a26c90e0836db22f1f5907bec0e46a72200a18ad57826c88fc4",
     "image_fingerprint": "phash:f48f9866a689d986",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p006_c001.json",
-    "embedding_preview": "[0.03600357, 0.07967544, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01528983, 0.0, 0.0]"
+    "embedding_preview": "[0.03600357, 0.07967544, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01528983, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -952,12 +991,13 @@
     "native_text": "2995\n7.1 $",
     "ocr_text": "VNVTIW\nPREMIUM\nFrench terry\n92%Cotton\n8%Elastane\nMODEL\nBM-8008\nCODE\nV-2995\n48\n50\n52\n54\n56\n7.1 $",
     "combined_text": "VNVTIW\nPREMIUM\nFrench terry\n92%Cotton\n8%Elastane\nMODEL\nBM-8008\nCODE\nV-2995\n48\n50\n52\n54\n56\n7.1 $\n2995",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p006_c002.png",
-    "image_sha256": "35b5a911d804277d05ed9396930b10997863168bbeae274dd530368e5e3e25a9",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p006_c002.jpg",
+    "image_sha256": "6ca06d280b7cc79ef21776eca02c96ffe7fd04d953af0a3f06f4274b61808d7b",
     "image_fingerprint": "phash:f698cb72b30cccc4",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p006_c002.json",
-    "embedding_preview": "[0.11818712, 0.10683393, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03367953, 0.01068814, 0.0]"
+    "embedding_preview": "[0.11818712, 0.10683393, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03367953, 0.01068814, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -976,12 +1016,13 @@
     "native_text": "3048\n7.1 $",
     "ocr_text": "VNVIIW\nPREMIUM\nFrench terry\n65%Cotton\n35%Polyester\nMODEL-\nBM-8009\nCODE\nV-3048\n48\n50\n52\n54\n56\n7.1 $",
     "combined_text": "VNVIIW\nPREMIUM\nFrench terry\n65%Cotton\n35%Polyester\nMODEL-\nBM-8009\nCODE\nV-3048\n48\n50\n52\n54\n56\n7.1 $\n3048",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p006_c003.png",
-    "image_sha256": "5bc38ded0c7fe5ff568d60ee66554851d7df4919981df449a820392e5d5b347d",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p006_c003.jpg",
+    "image_sha256": "5c352781908b3ba1f33ddc3367634f098ea72aeaeb982aa4d1815a9f040e88d2",
     "image_fingerprint": "phash:f69c9a633223c9a6",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p006_c003.json",
-    "embedding_preview": "[0.25154971, 0.02717216, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01119124, 0.0, 0.0]"
+    "embedding_preview": "[0.25154971, 0.02717216, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01119124, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1000,12 +1041,13 @@
     "native_text": "3680\n4 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nBM-8001\nCODE\nV-3680\n48\n50\n52\n54\n56\n58\n4 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nBM-8001\nCODE\nV-3680\n48\n50\n52\n54\n56\n58\n4 S\n3680\n4 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p006_c004.png",
-    "image_sha256": "cf188124261fe16cdd773b9518b55ff4ef6146a8d269c910271a56ddfe5fe691",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p006_c004.jpg",
+    "image_sha256": "a299f56ba84707344bd6c6c357c8aabf3f6096ffe2d1e067428078913b34f87f",
     "image_fingerprint": "phash:a7c90c664d39e636",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p006_c004.json",
-    "embedding_preview": "[0.00428014, 0.01047962, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00072935, 0.0, 0.0]"
+    "embedding_preview": "[0.00428014, 0.01047962, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00072935, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1024,12 +1066,13 @@
     "native_text": "18022\n5.5 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nMn-18022\n48\n50\n52\n56\n58\n5.5 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nMn-18022\n48\n50\n52\n56\n58\n5.5 S\n18022\n5.5 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p007_c001.png",
-    "image_sha256": "a547a9725c4914ebd6879c00517935eced6d5b1545cf60a2d1422951d58c1f82",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p007_c001.jpg",
+    "image_sha256": "a61f34703f69132ba30f3fa1f6c6d1c68a574e7c8d7ee73151b8c4b42e289182",
     "image_fingerprint": "phash:b7e09f0bc0253c7a",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p007_c001.json",
-    "embedding_preview": "[0.29816251, 0.25369407, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00223942, 0.01746746, 0.0, 0.0]"
+    "embedding_preview": "[0.29816251, 0.25369407, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00223942, 0.01746746, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1048,12 +1091,13 @@
     "native_text": "3789\n7.8 $",
     "ocr_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\n-MODEL\nPM-7007\nCODE\nV-3789\n48\n50\n52\n54\n56\n58\n7.8 S",
     "combined_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\n-MODEL\nPM-7007\nCODE\nV-3789\n48\n50\n52\n54\n56\n58\n7.8 S\n3789\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p007_c002.png",
-    "image_sha256": "58819755ab24bbbfa5c232ba1fca57d66da960f7004adcf7dae86dcbb8251f94",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p007_c002.jpg",
+    "image_sha256": "f43ecc88165c4586dc7d08d6ea64d37a9883b17f8013133d84635abdbf42d035",
     "image_fingerprint": "phash:a6c3d8c49b27f960",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p007_c002.json",
-    "embedding_preview": "[0.18783155, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.18783155, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1072,12 +1116,13 @@
     "native_text": "3425\n7.8 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL-\nPM-7007\nCODE\nV-3425\n48\n50\n52\n54\n56\n58\n7.8 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL-\nPM-7007\nCODE\nV-3425\n48\n50\n52\n54\n56\n58\n7.8 S\n3425\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p008_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p008_c001.jpg",
     "image_sha256": "7506362d49ba95992e971b62e3281c27c43fc9daaf890b5e12220ac29d47ea97",
     "image_fingerprint": "phash:e79698869e71d861",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p008_c001.json",
-    "embedding_preview": "[0.00131447, 0.01044536, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00530483, 0.0, 0.0]"
+    "embedding_preview": "[0.00131447, 0.01044536, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00530483, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1096,12 +1141,13 @@
     "native_text": "3585\n7.8 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3585\n48\n50\n52\n54\n56\n58\n7.8 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3585\n48\n50\n52\n54\n56\n58\n7.8 S\n3585\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p008_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p008_c002.jpg",
     "image_sha256": "e1c2953bd3ec56662fe1f0b6133c51980276d37896e0cd3afaaf52389923b7c9",
     "image_fingerprint": "phash:e6b1da8698699d68",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p008_c002.json",
-    "embedding_preview": "[0.00893529, 2.093e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.00893529, 2.093e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1120,12 +1166,13 @@
     "native_text": "3630\n7.8 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3630\n48\n50\n52\n54\n56\n58\n7.8 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3630\n48\n50\n52\n54\n56\n58\n7.8 S\n3630\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p008_c003.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p008_c003.jpg",
     "image_sha256": "1c346d3899f6196223076186ee82d296d3d0e1c1a3c9a013e4d40354c1acb247",
     "image_fingerprint": "phash:e6b59a96984aad68",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p008_c003.json",
-    "embedding_preview": "[0.00669481, 2.349e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.00669481, 2.349e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1144,12 +1191,13 @@
     "native_text": "3766\n7.8 $",
     "ocr_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3766\n48\n50\n,521 ,4]\n56\n58\n7.8 S",
     "combined_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nPM-7007\nCODE\nV-3766\n48\n50\n,521 ,4]\n56\n58\n7.8 S\n3766\n7.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p008_c004.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p008_c004.jpg",
     "image_sha256": "127227be2d7a0f4deecdba1b082a1acdf31bd978421b0438f30efe17ed8d8b5e",
     "image_fingerprint": "phash:f2878d528f38b568",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p008_c004.json",
-    "embedding_preview": "[0.20466911, 0.00128364, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00404109, 0.0012361, 0.0, 0.0]"
+    "embedding_preview": "[0.20466911, 0.00128364, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00404109, 0.0012361, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1168,12 +1216,13 @@
     "native_text": "2317\n8.3 $",
     "ocr_text": "MILANA\nPREMIUM\nSUPREM\nCOTT0N100%\nMODE\nPM-7000\nCODE\nV-2317\n48\n5\n52\n58\n8.3 S",
     "combined_text": "MILANA\nPREMIUM\nSUPREM\nCOTT0N100%\nMODE\nPM-7000\nCODE\nV-2317\n48\n5\n52\n58\n8.3 S\n2317\n8.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p009_c001.png",
-    "image_sha256": "7094ee66fd9cdb10694b37bf3935ebcdb4887529cd00357e13b918de3830ca65",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p009_c001.jpg",
+    "image_sha256": "63435d0ae76cfe9eba58b79f742c672c2cb6f01810d80693880ebf9b046386ac",
     "image_fingerprint": "phash:b384cb1bcc617c78",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p009_c001.json",
-    "embedding_preview": "[0.02958464, 0.00319543, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00283639, 0.00157976, 0.00046675, 0.0]"
+    "embedding_preview": "[0.02958464, 0.00319543, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00283639, 0.00157976, 0.00046675, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1192,12 +1241,13 @@
     "native_text": "v-795\n4 $",
     "ocr_text": "",
     "combined_text": "v-795\n4 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p009_c002.png",
-    "image_sha256": "808687ab766a0fac005b8c9314afb16c7edbae4833ff79da9016c4bdc16bc097",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p009_c002.jpg",
+    "image_sha256": "e2fba8d50b7c0a93378dfe6899ed72ed2bac2b28b6641399687771456db05942",
     "image_fingerprint": "phash:ee075b94b1819c5b",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p009_c002.json",
-    "embedding_preview": "[0.16443228, 0.21471144, 0.02445624, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00280528, 0.08696353, 0.04761775, 0.13882515]"
+    "embedding_preview": "[0.16443228, 0.21471144, 0.02445624, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00280528, 0.08696353, 0.04761775, 0.13882515]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1216,12 +1266,13 @@
     "native_text": "Тёмно-зеленый\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Тёмно-зеленый\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p010_c001.png",
-    "image_sha256": "ff8c371fc41b6e794b29f2bd6a4d56f73425c315130ad9174e7120e65d9c3b18",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p010_c001.jpg",
+    "image_sha256": "d109f51780d73630ee318327aff3bc29c2be45c630fd1446f464936c609872e9",
     "image_fingerprint": "phash:ead2d62628ada1da",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p010_c001.json",
-    "embedding_preview": "[0.01628534, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00035635, 0.00071271, 0.0]"
+    "embedding_preview": "[0.01628534, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00035635, 0.00071271, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1240,12 +1291,13 @@
     "native_text": "Бежевый\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Бежевый\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p010_c002.png",
-    "image_sha256": "b59e288ccebc1238acf14296f7ced47cb34bade658d70662803afa85c1cf94c0",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p010_c002.jpg",
+    "image_sha256": "fb3fd954bfe664439ea2b1399556e62756fa199a5ef92ddef13557fb28be3f1b",
     "image_fingerprint": "phash:a28764cf3399d8f0",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p010_c002.json",
-    "embedding_preview": "[0.0120896, 9.776e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.259e-05, 3.259e-05, 0.00029328, 0.0]"
+    "embedding_preview": "[0.0120896, 9.776e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.259e-05, 3.259e-05, 0.00029328, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1264,12 +1316,13 @@
     "native_text": "Капучино\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Капучино\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p010_c003.png",
-    "image_sha256": "fccc1a03b1710320d6d863f5c4bad26cbcef64236d2508e61bae4b70f274d422",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p010_c003.jpg",
+    "image_sha256": "99f692166de30ca49a1a08d0b64124a4ee6f9bc684259763b4a2c4669e4ded98",
     "image_fingerprint": "phash:ea87e616233b36e0",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p010_c003.json",
-    "embedding_preview": "[0.00971076, 6.069e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.035e-05, 0.0, 3.035e-05]"
+    "embedding_preview": "[0.00971076, 6.069e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.035e-05, 0.0, 3.035e-05]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1288,12 +1341,13 @@
     "native_text": "Хаки\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Хаки\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p010_c004.png",
-    "image_sha256": "836f230f900388ab746c9266b5f6a2f0295cbf3623f27a07ee997962ea5fa0e9",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p010_c004.jpg",
+    "image_sha256": "b882d29196bda59e0966501f1a883393f0060c8c961aec9ef9d7a4b56de910c7",
     "image_fingerprint": "phash:ea86c6271e2974e5",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p010_c004.json",
-    "embedding_preview": "[0.01859858, 3.431e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0002402, 0.0002402, 0.00017157, 0.0]"
+    "embedding_preview": "[0.01859858, 3.431e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0002402, 0.0002402, 0.00017157, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1312,12 +1366,13 @@
     "native_text": "Тёмно-синий\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Тёмно-синий\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p011_c001.png",
-    "image_sha256": "030872be8b884de4c7626b62b27fcc42c032f7dc2fd6fd4274b1c1eb53129f67",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p011_c001.jpg",
+    "image_sha256": "10b6db81876f2645376ccdaca7df4dcd9e1f1a40acbb3ab962c02b4fb9d7b9b2",
     "image_fingerprint": "phash:e1879672496d94ce",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p011_c001.json",
-    "embedding_preview": "[0.02864968, 0.14249313, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.07537534, 0.0, 0.0]"
+    "embedding_preview": "[0.02864968, 0.14249313, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.07537534, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1336,12 +1391,13 @@
     "native_text": "Тёмно-серый\nMF-9002\n2.8 $",
     "ocr_text": "",
     "combined_text": "Тёмно-серый\nMF-9002\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p011_c002.png",
-    "image_sha256": "b3e2b07825b0e2954184123788abd5a9b7eac30d073c6901f86651a1a64d1997",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p011_c002.jpg",
+    "image_sha256": "73ca59ded295908a7b4e6dff3564f34e20e3f52def7b36b37e63b758d86af1e2",
     "image_fingerprint": "phash:e38e96265a6961e5",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p011_c002.json",
-    "embedding_preview": "[0.00943649, 0.04251845, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09704946, 5.423e-05, 0.0]"
+    "embedding_preview": "[0.00943649, 0.04251845, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09704946, 5.423e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1360,12 +1416,13 @@
     "native_text": "MF-9005\n4.3 $",
     "ocr_text": "",
     "combined_text": "MF-9005\n4.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p011_c003.png",
-    "image_sha256": "b062cd511772ace245929c7de12aebce1cacd54df47340cda183368c9653c80f",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p011_c003.jpg",
+    "image_sha256": "6e7c9dbe91a35667d82a6346063ddf36000c48b5ce1383c5d946c2a15cdfcb72",
     "image_fingerprint": "phash:f2c3328f3172ce38",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p011_c003.json",
-    "embedding_preview": "[0.02476373, 0.02358881, 0.00054227, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00695915, 0.00831483, 0.0]"
+    "embedding_preview": "[0.02476373, 0.02358881, 0.00054227, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00695915, 0.00831483, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1384,12 +1441,13 @@
     "native_text": "2.8 $",
     "ocr_text": "MILANA\nHOME ANO SLEEP WEAR\nMODEL\nMF-9002\nCODE\nV-1051\n48\n50\n52\n54\n56\n2.8 S",
     "combined_text": "MILANA\nHOME ANO SLEEP WEAR\nMODEL\nMF-9002\nCODE\nV-1051\n48\n50\n52\n54\n56\n2.8 S\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p011_c004.png",
-    "image_sha256": "e0f0ad52f6a5996b7e499e9d53685fd538cc5c2b30f05b6d42611fbdd5e1078e",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p011_c004.jpg",
+    "image_sha256": "aea7f025e5a93ddf3f053eb5b6f21bcfcaf3f1626bda161792d8aa70359a5618",
     "image_fingerprint": "phash:ee86661e239d32b4",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p011_c004.json",
-    "embedding_preview": "[0.00643292, 0.00021092, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00015819, 2.636e-05, 2.636e-05]"
+    "embedding_preview": "[0.00643292, 0.00021092, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00015819, 2.636e-05, 2.636e-05]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1408,12 +1466,13 @@
     "native_text": "MF-9003\n3.8 $",
     "ocr_text": "",
     "combined_text": "MF-9003\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p012_c001.png",
-    "image_sha256": "2fce21d7aa52518fffe96cd0f7fbd0868dddb1c640715c9a3080f3800b82dfd4",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p012_c001.jpg",
+    "image_sha256": "8b139b20dc4217abda39e58ea4753ea4dbd2cc0cca94d105d9f9661135a7f649",
     "image_fingerprint": "phash:df296ae0a7947c48",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p012_c001.json",
-    "embedding_preview": "[0.37228464, 0.04149206, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01851024, 3.466e-05, 0.0]"
+    "embedding_preview": "[0.37228464, 0.04149206, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.01851024, 3.466e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1432,12 +1491,13 @@
     "native_text": "MF-9003\n3.8 $",
     "ocr_text": "",
     "combined_text": "MF-9003\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p012_c002.png",
-    "image_sha256": "4a11cc119347f7c8fed456761ddeaebc8d1615313e39f4ceb7d55b56d0357ffc",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p012_c002.jpg",
+    "image_sha256": "8e0e4c80dde0e978aab2f88d167a1b6452c6d18614eeee402ea8ecf2fc9b49aa",
     "image_fingerprint": "phash:e086d6671b39b4d2",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p012_c002.json",
-    "embedding_preview": "[0.47433315, 0.01535495, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00121223, 0.00067346, 0.0003502]"
+    "embedding_preview": "[0.47433315, 0.01535495, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00121223, 0.00067346, 0.0003502]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1456,12 +1516,13 @@
     "native_text": "MF-9003\n3.8 $",
     "ocr_text": "",
     "combined_text": "MF-9003\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p012_c003.png",
-    "image_sha256": "9a599b6b33e5705a3ecf86321dd482357373f22318f5d955c76aecad6bc543ce",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p012_c003.jpg",
+    "image_sha256": "ed6eda8e4bc4b359ff7fc7d9a4d1353c45a0e8787295acd34f677edc3511db61",
     "image_fingerprint": "phash:eb9c84671a6aa1a7",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p012_c003.json",
-    "embedding_preview": "[0.5085776, 0.01615799, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00123869, 0.00063311, 2.753e-05]"
+    "embedding_preview": "[0.5085776, 0.01615799, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00123869, 0.00063311, 2.753e-05]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1480,12 +1541,13 @@
     "native_text": "3.3 $",
     "ocr_text": "Fabrix\nCODE\nMn-18037\n48\n50\n52\n58\n3.3 S",
     "combined_text": "Fabrix\nCODE\nMn-18037\n48\n50\n52\n58\n3.3 S\n3.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p012_c004.png",
-    "image_sha256": "08e7ecc69aa126b7b900a0b13403ca8b85a2c1f165f155b121df58ea0dcade7d",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p012_c004.jpg",
+    "image_sha256": "d9f9e2940700fd96cb122450b87257af6b7e106484a39ba2e189d2ed10cd5136",
     "image_fingerprint": "phash:bcc396226f3cd0d2",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p012_c004.json",
-    "embedding_preview": "[0.65095844, 0.11632767, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00022691, 0.0, 0.0]"
+    "embedding_preview": "[0.65095844, 0.11632767, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00022691, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1504,12 +1566,13 @@
     "native_text": "3.8 $",
     "ocr_text": "MILANA\nPREMIUM\nMOOEL\nMF-9003\nnOMADLIVE\nV-1659\n46\n48\n50\n52\n54\n3.8 S",
     "combined_text": "MILANA\nPREMIUM\nMOOEL\nMF-9003\nnOMADLIVE\nV-1659\n46\n48\n50\n52\n54\n3.8 S\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p013_c001.png",
-    "image_sha256": "56f2c55929d2003d179e742871e5981cc6105d6fd15c0b7f0fec8b81487b0521",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p013_c001.jpg",
+    "image_sha256": "65205b401a45e53d32d6c460d338e8c931b412c50a2f1db59a1cbc53cd2339ad",
     "image_fingerprint": "phash:da3569f0a7869668",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p013_c001.json",
-    "embedding_preview": "[0.19734894, 0.06919106, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00054251, 0.0, 0.0]"
+    "embedding_preview": "[0.19734894, 0.06919106, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00054251, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1528,12 +1591,13 @@
     "native_text": "3.8 $",
     "ocr_text": "MILANA\nPREMIUM\nTHE\nMOOEL\nALATAU\nMF-9003\nV-1663\n46\n48\n5\n52\n54\n3.8 S",
     "combined_text": "MILANA\nPREMIUM\nTHE\nMOOEL\nALATAU\nMF-9003\nV-1663\n46\n48\n5\n52\n54\n3.8 S\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p013_c002.png",
-    "image_sha256": "b32d14d1413a1e342ae7733351ba1bf502c465c515a42d8254180f12f0199129",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p013_c002.jpg",
+    "image_sha256": "0e4f394e8079d37a87db20d6d2adbd1b7a8a9a046d98742cc2420059418f8777",
     "image_fingerprint": "phash:da3569f8a7869628",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p013_c002.json",
-    "embedding_preview": "[0.19800983, 0.07262046, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00033718, 0.0, 0.0]"
+    "embedding_preview": "[0.19800983, 0.07262046, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00033718, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1552,12 +1616,13 @@
     "native_text": "3.8 $",
     "ocr_text": "VNVTIW\nPREMIUM\nnomAD\nMF-9003\nWORLD\nV-1408\n46\n48\n50\n5\n54\n3.8 S",
     "combined_text": "VNVTIW\nPREMIUM\nnomAD\nMF-9003\nWORLD\nV-1408\n46\n48\n50\n5\n54\n3.8 S\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p013_c003.png",
-    "image_sha256": "52f716e3883dbec6d40897d0c266eaabe9359d9cca925f10e517557181b89bd2",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p013_c003.jpg",
+    "image_sha256": "65b0fa26dc2ed2fdb963f19d3263b50bba079d487db467a795ccb2b639bc795c",
     "image_fingerprint": "phash:df256bf02586964a",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p013_c003.json",
-    "embedding_preview": "[0.19000882, 0.07106596, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00045795, 0.0, 0.0]"
+    "embedding_preview": "[0.19000882, 0.07106596, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00045795, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1576,12 +1641,13 @@
     "native_text": "MF-9004\n3.3 $",
     "ocr_text": "",
     "combined_text": "MF-9004\n3.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p013_c004.png",
-    "image_sha256": "5fb359a2ea3a74499a387ee16afe4308b697a17e8c8068588a038341a93fad3e",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p013_c004.jpg",
+    "image_sha256": "23426efa098058fcd0bf05a8b742937bc5285b013247cde39430ab53c48699b7",
     "image_fingerprint": "phash:f2d332252ec26ec3",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p013_c004.json",
-    "embedding_preview": "[0.00237719, 0.00054134, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00014122, 0.0, 0.0]"
+    "embedding_preview": "[0.00237719, 0.00054134, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00014122, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1600,12 +1666,13 @@
     "native_text": "4.8 $",
     "ocr_text": "MIL>N>\nPREMIUM\nMODEL\nMP-16002\nCODE\nV-1907\n48\n50\n527\n56",
     "combined_text": "MIL>N>\nPREMIUM\nMODEL\nMP-16002\nCODE\nV-1907\n48\n50\n527\n56\n4.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p014_c001.png",
-    "image_sha256": "2e0909792a13816347d57755260f5a5e46ab8ec44bb60e2b7f7a7c444a68b128",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p014_c001.jpg",
+    "image_sha256": "114ff24c5c128add70fb64ab423d15ea2f69b12fb89455a943392a54466392ec",
     "image_fingerprint": "phash:eb9694e07a69a19c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p014_c001.json",
-    "embedding_preview": "[0.49649898, 0.31565884, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00070738, 0.0, 0.0]"
+    "embedding_preview": "[0.49649898, 0.31565884, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00070738, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1624,12 +1691,13 @@
     "native_text": "4.8 $",
     "ocr_text": "MILANA\nPREMIUM\nMODEL\nMP-16002\nCODE\nV-1908\n48\n5\n52\n54\n56\n8S",
     "combined_text": "MILANA\nPREMIUM\nMODEL\nMP-16002\nCODE\nV-1908\n48\n5\n52\n54\n56\n8S\n4.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p014_c002.png",
-    "image_sha256": "2229b97ba63199c4d56df9cfc96dcebfa05e9adda02aecade8a4fc496e563786",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p014_c002.jpg",
+    "image_sha256": "f13e7fd83a3bc80fb1bf00127bcd776f87275e101dcc271749e69cb625bf36f8",
     "image_fingerprint": "phash:e98697627b21859e",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p014_c002.json",
-    "embedding_preview": "[0.65632718, 0.00051321, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.666e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.65632718, 0.00051321, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.666e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1648,12 +1716,13 @@
     "native_text": "4113\n2.8 $",
     "ocr_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nMF-9008\nCODE\nV-4113\n48\n50\n52\n54\n56\n2.8",
     "combined_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nMF-9008\nCODE\nV-4113\n48\n50\n52\n54\n56\n2.8\n4113\n2.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\02_Milana_Man_Premium_Collection_p014_c003.png",
-    "image_sha256": "14d5613b7f080fd5b0f811d936ee6bdbd193c26161ccf8738dbd8ef9d42c1f3d",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\02_Milana_Man_Premium_Collection_p014_c003.jpg",
+    "image_sha256": "6c55177ae89fb9d3e101a071de31f90235b05fff01ddb4d31ece76cbae385b55",
     "image_fingerprint": "phash:ccb555aa46ab52aa",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\02_Milana_Man_Premium_Collection_p014_c003.json",
-    "embedding_preview": "[0.03800287, 0.00012847, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.569e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.03800287, 0.00012847, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.569e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1672,12 +1741,13 @@
     "native_text": "3.2 $",
     "ocr_text": "Wear\nBoring\nMODEL-\nD-5097\nc3neTn06neT\nPOCTOT980116\nMODEL\nD-5098\nc7neTo12neT\npoCToT122o152\n3.2 S",
     "combined_text": "Wear\nBoring\nMODEL-\nD-5097\nc3neTn06neT\nPOCTOT980116\nMODEL\nD-5098\nc7neTo12neT\npoCToT122o152\n3.2 S\n3.2 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p001_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p001_c001.jpg",
     "image_sha256": "f3daca3c19ffeac40a762d81213cf51eabe71c373ddb97a50a3111e5a5d1b659",
     "image_fingerprint": "phash:e6789816a78d7961",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p001_c001.json",
-    "embedding_preview": "[0.31857944, 0.03343041, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00557174, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.31857944, 0.03343041, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00557174, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1696,12 +1766,13 @@
     "native_text": "5100\n3.8 $",
     "ocr_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nD-5100\nc7neTno12neT\nPOCTOT122o152\nSALE\n3.8 S",
     "combined_text": "VNVTIW\nPREMIUM\nSuprem\n100%COTTON\nMODEL\nD-5100\nc7neTno12neT\nPOCTOT122o152\nSALE\n3.8 S\n5100\n3.8 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p001_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p001_c002.jpg",
     "image_sha256": "55b801abce3701bddd5627742ff28bcad6f4eb06afc3a4268e0d87c2183b6e8f",
     "image_fingerprint": "phash:a3839c966ae9699c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p001_c002.json",
-    "embedding_preview": "[0.06781631, 0.16336751, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03441513, 0.00047716, 0.0]"
+    "embedding_preview": "[0.06781631, 0.16336751, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03441513, 0.00047716, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1720,12 +1791,13 @@
     "native_text": "6.1 $",
     "ocr_text": "MILAN>\nPREMIUM\n3000\nPG-10505\nCODE\nV-1962\nc7neTAO12\n6.1S",
     "combined_text": "MILAN>\nPREMIUM\n3000\nPG-10505\nCODE\nV-1962\nc7neTAO12\n6.1S\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p002_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p002_c001.jpg",
     "image_sha256": "0c3b0f54decd2d2bdd5ec11961009f55cd9107ec91e3123d50086f11cfc17f77",
     "image_fingerprint": "phash:e7b4924a995bb119",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p002_c001.json",
-    "embedding_preview": "[0.02053543, 4.721e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.02053543, 4.721e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1744,12 +1816,13 @@
     "native_text": "6.1 $",
     "ocr_text": "MILANA\nPREMIUM\nMODEL\nPG-10505\n3000\nV-1946\nc7neTAO12\n6.1S",
     "combined_text": "MILANA\nPREMIUM\nMODEL\nPG-10505\n3000\nV-1946\nc7neTAO12\n6.1S\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p002_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p002_c002.jpg",
     "image_sha256": "06eda739cf06a487dec0ada5276ff992c89297e085b80c3f1fcd782ed138b57b",
     "image_fingerprint": "phash:f9b6a64b9449cc98",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p002_c002.json",
-    "embedding_preview": "[0.01511158, 9.749e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.01511158, 9.749e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1768,12 +1841,13 @@
     "native_text": "4.2 $",
     "ocr_text": "MIL>N>\nPREMIUM\nFMODEL-\nD-5001/1\nc3neTo7neT\nPOCTOT980122\n4.2 S",
     "combined_text": "MIL>N>\nPREMIUM\nFMODEL-\nD-5001/1\nc3neTo7neT\nPOCTOT980122\n4.2 S\n4.2 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p002_c003.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p002_c003.jpg",
     "image_sha256": "4ee985902a84ab7c080118932e5584195ba7cb70a2ca888144a1d5b0b552ad1c",
     "image_fingerprint": "phash:a7e7c406d8191be5",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p002_c003.json",
-    "embedding_preview": "[0.01253786, 0.01362811, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.451e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.01253786, 0.01362811, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 5.451e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1792,12 +1866,13 @@
     "native_text": "3.9 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n0%COTTON\nTMAPI\nTHPIN\nTHANR\n-MODEL-\nD-5002/\n2\nc3neTo7neT\nSALE\nPOCTOT980122\n3.9 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n0%COTTON\nTMAPI\nTHPIN\nTHANR\n-MODEL-\nD-5002/\n2\nc3neTo7neT\nSALE\nPOCTOT980122\n3.9 S\n3.9 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p002_c004.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p002_c004.jpg",
     "image_sha256": "81d1d96afcfd23708ce9fb991ae38b12a711b9cb988be315e3acb8700dbfd824",
     "image_fingerprint": "phash:fab4a446c3c55ce4",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p002_c004.json",
-    "embedding_preview": "[0.02466452, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00209354, 0.00065423, 0.0, 0.0]"
+    "embedding_preview": "[0.02466452, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00209354, 0.00065423, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1816,12 +1891,13 @@
     "native_text": "4.3 $",
     "ocr_text": "lictorid\necret\nMODEL\nD-5092\nc7neTno12neT\nSALE\nPOCTOT1220152\n4.3 S",
     "combined_text": "lictorid\necret\nMODEL\nD-5092\nc7neTno12neT\nSALE\nPOCTOT1220152\n4.3 S\n4.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p003_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p003_c001.jpg",
     "image_sha256": "5856f3b3640a9a7e267d0c9418165b04dead3815067189f0ceefc971eb6487e7",
     "image_fingerprint": "phash:e3b08c4d9fa4a8ec",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p003_c001.json",
-    "embedding_preview": "[0.0981677, 0.13751044, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00018915, 0.01084447, 0.0, 0.0]"
+    "embedding_preview": "[0.0981677, 0.13751044, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00018915, 0.01084447, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1840,12 +1916,13 @@
     "native_text": "4.3 $",
     "ocr_text": "MILANA\nPREMIUM\nCynpem\nSAY HI!!\nMODEL\nDK-18001\n?\n3003\nV-2048\nC3neTAO10\nMONSTER\n4.3 S",
     "combined_text": "MILANA\nPREMIUM\nCynpem\nSAY HI!!\nMODEL\nDK-18001\n?\n3003\nV-2048\nC3neTAO10\nMONSTER\n4.3 S\n4.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p003_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p003_c002.jpg",
     "image_sha256": "f6bda49aa8384cdd15d4008784c63c4706adc6347c13662563ce825397b7659c",
     "image_fingerprint": "phash:e59662b28e87cbc8",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p003_c002.json",
-    "embedding_preview": "[0.00873381, 0.00131533, 0.00052613, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00015784, 0.0, 0.0]"
+    "embedding_preview": "[0.00873381, 0.00131533, 0.00052613, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00015784, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1864,12 +1941,13 @@
     "native_text": "3808\n6.1 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL-\nPG-10502\nCODE\nV-3808\nc7neTno12net\npOCT 0T122no152\n6.1$s",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nMODEL-\nPG-10502\nCODE\nV-3808\nc7neTno12net\npOCT 0T122no152\n6.1$s\n3808\n6.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p003_c003.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p003_c003.jpg",
     "image_sha256": "43dbe4e8495ea174f8d062ad756d2d65ebf198aa0dafeb2d6b86edfaaa41ce28",
     "image_fingerprint": "phash:a7e39e86c919d81c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p003_c003.json",
-    "embedding_preview": "[0.00048661, 4.231e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.00048661, 4.231e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1888,12 +1966,13 @@
     "native_text": "4.1 $",
     "ocr_text": "Z\nIIUM\nMODEL\nD-5008\nSALE\nc7neTno13neT\nPOCTOT122o158\nm\n4.1 S",
     "combined_text": "Z\nIIUM\nMODEL\nD-5008\nSALE\nc7neTno13neT\nPOCTOT122o158\nm\n4.1 S\n4.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p003_c004.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p003_c004.jpg",
     "image_sha256": "21d9744f9f6c782c52e8808aac93492b334e0efea8ffed2e27a03f539a3be1f8",
     "image_fingerprint": "phash:8b83e24ae8ddf41c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p003_c004.json",
-    "embedding_preview": "[0.03741761, 0.00021463, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00758368, 0.00093007, 0.00021463, 0.0]"
+    "embedding_preview": "[0.03741761, 0.00021463, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00758368, 0.00093007, 0.00021463, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1912,12 +1991,13 @@
     "native_text": "4.1 $",
     "ocr_text": "MIL>N>\nPremIum\n丽\n★\nMODEL\nD-5011\nSALE\nc7neTo13neT\nPOCTOT1220158\n4.1S",
     "combined_text": "MIL>N>\nPremIum\n丽\n★\nMODEL\nD-5011\nSALE\nc7neTo13neT\nPOCTOT1220158\n4.1S\n4.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p004_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p004_c001.jpg",
     "image_sha256": "4406cc0d435399c970fcd3c92b3754511a007219b40eb8ad0ee218120ce61777",
     "image_fingerprint": "phash:9b9ba2671e95e04a",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p004_c001.json",
-    "embedding_preview": "[0.08250992, 0.01989398, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00543864, 0.00014312, 0.0, 0.0]"
+    "embedding_preview": "[0.08250992, 0.01989398, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00543864, 0.00014312, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1936,12 +2016,13 @@
     "native_text": "4.1 $",
     "ocr_text": "VNVTIW\nPREMIUM\nI LOVE yOU\nPIZZA\nMODEL-\nD-5012\nc7neTo12neT\nSALE\nPOCTOT122no152\n4.1S",
     "combined_text": "VNVTIW\nPREMIUM\nI LOVE yOU\nPIZZA\nMODEL-\nD-5012\nc7neTo12neT\nSALE\nPOCTOT122no152\n4.1S\n4.1 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p004_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p004_c002.jpg",
     "image_sha256": "2b2a5dac2d5eb8189742e8e78cb270ff0c1f6254e53ad91686254b4a18cf844f",
     "image_fingerprint": "phash:f253de264bc83c07",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p004_c002.json",
-    "embedding_preview": "[0.0800295, 0.01546582, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00018412, 0.00018412, 0.0, 0.0]"
+    "embedding_preview": "[0.0800295, 0.01546582, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00018412, 0.00018412, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1960,12 +2041,13 @@
     "native_text": "3.7 $",
     "ocr_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nI'MFINEI\nTHANKS:\nMODEL\nD-5010\nI'MFINE\nTHANKS\nc7neTno13neT\nSALE\nPOCT oT122o158\n3.7 S",
     "combined_text": "MIL>N>\nPREMIUM\nSuprem\n100%COTTON\nI'MFINEI\nTHANKS:\nMODEL\nD-5010\nI'MFINE\nTHANKS\nc7neTno13neT\nSALE\nPOCT oT122o158\n3.7 S\n3.7 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p004_c004.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p004_c004.jpg",
     "image_sha256": "d4cee9d8c04826aea19fcbceac94ebdad9198737476acc10a98169ca517b70bd",
     "image_fingerprint": "phash:e79686ce9993908e",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p004_c004.json",
-    "embedding_preview": "[0.00048071, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.00048071, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -1984,12 +2066,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MIL>N\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\n3003\nV-2095\nc7neTAo12\n5.3 S",
     "combined_text": "MIL>N\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\n3003\nV-2095\nc7neTAo12\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c001.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c001.jpg",
     "image_sha256": "0366b92ad0dd1a6a854d6ff975d3579cef2f4a9fffef0be0311385375a0cb37d",
     "image_fingerprint": "phash:f2b2324b874dcccc",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c001.json",
-    "embedding_preview": "[0.02455933, 0.00449805, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00715189, 4.498e-05, 0.0]"
+    "embedding_preview": "[0.02455933, 0.00449805, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00715189, 4.498e-05, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2008,12 +2091,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MIL>N>\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\nCODE\nV-2040\nc3neTAo7\n5.3 S",
     "combined_text": "MIL>N>\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\nCODE\nV-2040\nc3neTAo7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c002.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c002.jpg",
     "image_sha256": "b677ac2ef322cac8799f1ad2cd859b4986a46facacf321af9a328df9fac157d9",
     "image_fingerprint": "phash:f2b672ca874d9c18",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c002.json",
-    "embedding_preview": "[0.0395189, 4.94e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.94e-05, 0.00029639, 0.0]"
+    "embedding_preview": "[0.0395189, 4.94e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.94e-05, 0.00029639, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2032,12 +2116,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MIL>N>\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nDK-18002\nV-2039\n3003\nc3neTAo 7\n5.3 S",
     "combined_text": "MIL>N>\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nDK-18002\nV-2039\n3003\nc3neTAo 7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c003.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c003.jpg",
     "image_sha256": "50eec7568104b093952088122ae22e9ca68a626c1cb6a034d7ce4dede09c52f3",
     "image_fingerprint": "phash:f79c52638d4d944c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c003.json",
-    "embedding_preview": "[0.02159014, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.735e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.02159014, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.735e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2056,12 +2141,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MILAN>\nPREMIUM\nSUPREM\nCOTT0N100%\n2\nMONSTERS\nVE'RE\nCODE-\nDK-18002\nCODE\nV-2093\nc7neTAo12\n5.3 S",
     "combined_text": "MILAN>\nPREMIUM\nSUPREM\nCOTT0N100%\n2\nMONSTERS\nVE'RE\nCODE-\nDK-18002\nCODE\nV-2093\nc7neTAo12\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c004.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c004.jpg",
     "image_sha256": "e85e9ae9c05436cb1a7e47d76b7f31f8ec70a3a89686397f5a0de1b68de173c3",
     "image_fingerprint": "phash:e6a68636964ad8d9",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c004.json",
-    "embedding_preview": "[0.02121821, 0.00019511, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.878e-05, 0.0, 0.0]"
+    "embedding_preview": "[0.02121821, 0.00019511, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.878e-05, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2080,12 +2166,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MILAN>\nPREMIUM\nTIMETO CHILL\nPLUSH TOY\nMODE\nDJ-18002\nCODE\nV-2090\nc3neTAo7\n5.3 S",
     "combined_text": "MILAN>\nPREMIUM\nTIMETO CHILL\nPLUSH TOY\nMODE\nDJ-18002\nCODE\nV-2090\nc3neTAo7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c005.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c005.jpg",
     "image_sha256": "c3a1186a84d31ce85510d83ae1c96e410f923a5f38be6a4aafdc6507b726eb79",
     "image_fingerprint": "phash:e791d262894ddc5c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c005.json",
-    "embedding_preview": "[0.04259664, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.04259664, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2104,12 +2191,13 @@
     "native_text": "5.3 $",
     "ocr_text": "M\nNVTI\nPREMIUM\nTIMETO CHILL\nPLUSHTOY\nMODEL\nDJ-18002\nCODE\nV-2088\nc3neTAo7\n5.3 S",
     "combined_text": "M\nNVTI\nPREMIUM\nTIMETO CHILL\nPLUSHTOY\nMODEL\nDJ-18002\nCODE\nV-2088\nc3neTAo7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p005_c006.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p005_c006.jpg",
     "image_sha256": "96d5fde9efc12e8c35b36bf415b50302f06baff9eb093b31b0976d9922a4db53",
     "image_fingerprint": "phash:e7b1926689599c6c",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p005_c006.json",
-    "embedding_preview": "[0.03991831, 4.184e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.184e-05, 0.0, 0.0, 0.0]"
+    "embedding_preview": "[0.03991831, 4.184e-05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.184e-05, 0.0, 0.0, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2128,12 +2216,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MILANA\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\nV-2087\nc3neTAO7\n5.3 S",
     "combined_text": "MILANA\nPREMIUM\nTIME TO CHILL\nPLUSH TOY\nMODEL\nDK-18002\nV-2087\nc3neTAO7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p006_c003.jpg",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p006_c003.jpg",
     "image_sha256": "71301d665894548174d752ef3a773fc389963e63affdafb690f02f71fb43e8d2",
     "image_fingerprint": "phash:b4d9c323ce2cf152",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p006_c003.json",
-    "embedding_preview": "[0.10228361, 0.20042344, 0.00016913, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021142, 0.00325582, 0.00021142, 0.0]"
+    "embedding_preview": "[0.10228361, 0.20042344, 0.00016913, 0.0, 0.0, 0.0, 0.0, 0.0, 0.00021142, 0.00325582, 0.00021142, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
@@ -2152,12 +2241,13 @@
     "native_text": "5.3 $",
     "ocr_text": "MILAN>\nPREMIUM\nSUPREM\nCOTT0N100%\nMODEL\nDK-18002\nCODE\nV-2089\nMONSTERS\nc3neTno7\n5.3 S",
     "combined_text": "MILAN>\nPREMIUM\nSUPREM\nCOTT0N100%\nMODEL\nDK-18002\nCODE\nV-2089\nMONSTERS\nc3neTno7\n5.3 S\n5.3 $",
-    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\images\\latest\\03_Kindergarten_Set_p006_c004.png",
-    "image_sha256": "7770d6b52bc7ffedd75cfff147ffae483df69894cb95f13cc9a6075bd6b60432",
+    "image_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\storage_images\\latest\\03_Kindergarten_Set_p006_c004.jpg",
+    "image_sha256": "7cdde2b7842266320472ab8e9df7a7ce8ab44038be6a439828188a35b1adc17a",
     "image_fingerprint": "phash:b6d9c323ce2cb033",
     "embedding_model": "color-histogram",
     "embedding_path": "C:\\Users\\User\\Documents\\New project 2\\outputs\\catalog_processing\\embeddings\\latest\\03_Kindergarten_Set_p006_c004.json",
-    "embedding_preview": "[0.09658723, 0.18475903, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.229e-05, 0.00312936, 0.00012687, 0.0]"
+    "embedding_preview": "[0.09658723, 0.18475903, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.229e-05, 0.00312936, 0.00012687, 0.0]",
+    "image_missing": false
   },
   {
     "catalog_date": "2026-06-02",
