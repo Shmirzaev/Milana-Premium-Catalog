@@ -10,6 +10,7 @@ outputs/*
 !outputs/catalog_processing/
 outputs/catalog_processing/*
 !outputs/catalog_processing/milana_products_latest.json
+!outputs/catalog_processing/locked_catalogs.json
 !outputs/catalog_processing/storage_images/
 outputs/catalog_processing/storage_images/*
 !outputs/catalog_processing/storage_images/latest/

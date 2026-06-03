@@ -271,6 +271,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--force", action="store_true", help="Reprocess PDFs even when downloaded files did not change.")
     parser.add_argument("--download-only", action="store_true", help="Download/check PDFs without rebuilding Excel.")
+    parser.add_argument(
+        "--locked-catalogs",
+        default=None,
+        help="Optional JSON file with source_pdfs to preserve instead of regenerating.",
+    )
     parser.add_argument("--supabase-url", default=os.getenv("SUPABASE_URL"), help="Supabase project URL.")
     parser.add_argument(
         "--supabase-key",
@@ -316,6 +321,10 @@ def process_catalogs(args: argparse.Namespace, logger: logging.Logger) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     images_dir.mkdir(parents=True, exist_ok=True)
     embeddings_dir.mkdir(parents=True, exist_ok=True)
+    json_path = output_dir / "milana_products_latest.json"
+    locked_sources = load_locked_catalog_sources(args, output_dir)
+    locked_payloads = load_locked_product_payloads(json_path, locked_sources)
+    locked_image_backups = backup_locked_product_images(locked_payloads, output_dir)
 
     pdf_paths: list[Path]
     manifest_path = output_dir / "download_manifest.json"
@@ -357,10 +366,15 @@ def process_catalogs(args: argparse.Namespace, logger: logging.Logger) -> Path:
     embedding_engine = EmbeddingEngine(args.enable_ml_embeddings, logger)
 
     reset_generated_outputs(output_dir, workbook_path, images_dir, embeddings_dir)
+    restore_locked_product_images(locked_image_backups)
     external_image_replacements = load_external_image_replacements(output_dir, logger)
 
     records: list[ProductRecord] = []
     for pdf_path in pdf_paths:
+        if pdf_path.name in locked_sources:
+            logger.info("Skipping locked catalog %s", pdf_path.name)
+            continue
+
         logger.info("Processing %s", pdf_path.name)
         records.extend(
             process_pdf(
@@ -375,9 +389,16 @@ def process_catalogs(args: argparse.Namespace, logger: logging.Logger) -> Path:
             )
         )
 
-    json_path = output_dir / "milana_products_latest.json"
     csv_path = output_dir / "milana_products_latest.csv"
-    json_path.write_text(json.dumps([asdict(record) for record in records], indent=2, ensure_ascii=False), encoding="utf-8")
+    json_payload = sorted(
+        [asdict(record) for record in records] + locked_payloads,
+        key=lambda item: (
+            str(item.get("source_pdf") or ""),
+            int(item.get("page") or 0),
+            int(item.get("card_index") or 0),
+        ),
+    )
+    json_path.write_text(json.dumps(json_payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
     if args.destination in {"supabase", "both"}:
         sync_records_to_supabase(records, args, output_dir, logger)
@@ -390,6 +411,8 @@ def process_catalogs(args: argparse.Namespace, logger: logging.Logger) -> Path:
         save_json(manifest_path, manifest_payload)
 
     logger.info("Extracted %s product card candidates.", len(records))
+    if locked_payloads:
+        logger.info("Preserved %s locked product row(s).", len(locked_payloads))
     if args.destination in {"excel", "both"}:
         logger.info("Excel workbook: %s", workbook_path)
         logger.info("CSV copy: %s", csv_path)
@@ -631,6 +654,80 @@ def load_json(path: Path) -> dict:
 def save_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def load_locked_catalog_sources(args: argparse.Namespace, output_dir: Path) -> set[str]:
+    path = Path(args.locked_catalogs).resolve() if args.locked_catalogs else output_dir / "locked_catalogs.json"
+    if not path.exists():
+        return set()
+
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return set()
+
+    values = payload.get("source_pdfs") if isinstance(payload, dict) else payload
+    if not isinstance(values, list):
+        return set()
+
+    return {str(value) for value in values if str(value).strip()}
+
+
+def load_locked_product_payloads(json_path: Path, locked_sources: set[str]) -> list[dict]:
+    if not locked_sources or not json_path.exists():
+        return []
+
+    try:
+        payload = json.loads(json_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+
+    if not isinstance(payload, list):
+        return []
+
+    return [
+        item
+        for item in payload
+        if isinstance(item, dict) and item.get("source_pdf") in locked_sources
+    ]
+
+
+def backup_locked_product_images(locked_payloads: list[dict], output_dir: Path) -> list[tuple[Path, Path]]:
+    backups: list[tuple[Path, Path]] = []
+    if not locked_payloads:
+        return backups
+
+    backup_dir = output_dir / "_locked_image_backup"
+    if backup_dir.exists():
+        shutil.rmtree(backup_dir)
+    backup_dir.mkdir(parents=True, exist_ok=True)
+
+    seen: set[Path] = set()
+    for item in locked_payloads:
+        for key in ("image_path", "embedding_path"):
+            raw_path = str(item.get(key) or "")
+            if not raw_path:
+                continue
+
+            path = Path(raw_path)
+            if not path.exists() or path in seen:
+                continue
+
+            seen.add(path)
+            backup_path = backup_dir / hashlib.sha256(str(path).encode("utf-8")).hexdigest()
+            shutil.copy2(path, backup_path)
+            backups.append((backup_path, path))
+
+    return backups
+
+
+def restore_locked_product_images(backups: list[tuple[Path, Path]]) -> None:
+    for backup_path, original_path in backups:
+        if not backup_path.exists():
+            continue
+
+        original_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(backup_path, original_path)
 
 
 def reset_output_dir(path: Path) -> None:
@@ -1540,8 +1637,12 @@ def sync_records_to_supabase(
     client = SupabaseRestClient(args.supabase_url, args.supabase_key)
     run_id = f"{args.catalog_date}-{datetime.now():%H%M%S}"
     storage_image_dir = output_dir / "storage_images" / "latest"
-    reset_output_dir(storage_image_dir)
+    storage_image_dir.mkdir(parents=True, exist_ok=True)
     overrides = load_supabase_overrides(client, args.supabase_overrides_table, logger)
+    refreshed_sources = sorted({record.source_pdf for record in records})
+    if not refreshed_sources:
+        logger.info("No unlocked records to sync to Supabase.")
+        return
 
     logger.info("Preparing %s Supabase image upload(s).", len(records))
     rows = []
@@ -1561,8 +1662,12 @@ def sync_records_to_supabase(
         if index == 1 or index % 25 == 0 or index == len(records):
             logger.info("Uploaded %s/%s product image(s) to Supabase Storage.", index, len(records))
 
-    logger.info("Deleting old Supabase rows from '%s'.", args.supabase_table)
-    client.delete_table_rows(args.supabase_table, f"source_system=eq.{SOURCE_SYSTEM}")
+    logger.info("Deleting old Supabase rows from '%s' for %s source PDF(s).", args.supabase_table, len(refreshed_sources))
+    for source_pdf in refreshed_sources:
+        client.delete_table_rows(
+            args.supabase_table,
+            f"source_system=eq.{SOURCE_SYSTEM}&source_pdf=eq.{urllib.parse.quote(source_pdf, safe='')}",
+        )
     logger.info("Inserting %s fresh Supabase row(s).", len(rows))
     client.insert_rows(args.supabase_table, rows)
     logger.info("Supabase refresh complete: %s row(s), %s image(s).", len(rows), len(rows))

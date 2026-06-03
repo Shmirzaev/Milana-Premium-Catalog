@@ -1470,7 +1470,7 @@
       return product.image_url;
     }
 
-    return "covers/milana-products-in-stock-en.png";
+    return "";
   }
 
   function localProductImageUrl(product) {
@@ -1510,8 +1510,7 @@
       derivedLocalImageUrl(product),
       deployedImagePath(localProductImageUrl(product)),
       deployedImagePath(currentImage),
-      product.image_url,
-      "covers/milana-products-in-stock-en.png"
+      product.image_url
     ]).filter((value) => value !== currentImage);
   }
 
@@ -1543,6 +1542,7 @@
 
     const fallbacks = readImageFallbacks(img);
     if (!fallbacks.length) {
+      showMissingImage(img);
       return;
     }
 
@@ -1551,6 +1551,15 @@
     if (next && img.src !== next) {
       img.src = next;
     }
+  }
+
+  function showMissingImage(img) {
+    const wrapper = img.closest(".product-image");
+    if (!wrapper) {
+      return;
+    }
+
+    wrapper.innerHTML = '<div class="missing-image">No image</div>';
   }
 
   function readImageFallbacks(img) {
