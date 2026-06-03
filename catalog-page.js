@@ -689,13 +689,18 @@
       return "";
     }
 
+    const explicitImage = String(product.image_url || "").trim();
+    if (explicitImage && (!product.image_path || isManualImageUrl(explicitImage))) {
+      return explicitImage;
+    }
+
     const localImage = localProductImageUrl(product) || derivedLocalImageUrl(product, "storage_images");
     if (localImage) {
       return localImage;
     }
 
-    if (product.image_url) {
-      return product.image_url;
+    if (explicitImage) {
+      return explicitImage;
     }
 
     return "";
@@ -785,6 +790,10 @@
 
   function isSupabaseImageUrl(value) {
     return String(value || "").includes("/storage/v1/");
+  }
+
+  function isManualImageUrl(value) {
+    return String(value || "").includes("/manual-edits/");
   }
 
   function localStorageImageUrl(product) {

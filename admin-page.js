@@ -1461,13 +1461,18 @@
       return "";
     }
 
+    const explicitImage = String(product.image_url || "").trim();
+    if (explicitImage && (!product.image_path || isManualImageUrl(explicitImage))) {
+      return explicitImage;
+    }
+
     const localImage = localProductImageUrl(product) || derivedLocalImageUrl(product);
     if (localImage) {
       return deployedImagePath(localImage);
     }
 
-    if (product.image_url) {
-      return product.image_url;
+    if (explicitImage) {
+      return explicitImage;
     }
 
     return "";
@@ -1503,6 +1508,10 @@
     }
 
     return `${url}?v=${LOCAL_IMAGE_VERSION}`;
+  }
+
+  function isManualImageUrl(value) {
+    return String(value || "").includes("/manual-edits/");
   }
 
   function adminImageFallbacks(product, currentImage) {
