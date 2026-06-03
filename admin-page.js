@@ -8,7 +8,7 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
-  const LOCAL_IMAGE_VERSION = "20260603-image-fix";
+  const LOCAL_IMAGE_VERSION = "20260603-final-local";
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];
@@ -185,11 +185,11 @@
 
     const mergedKeys = new Set();
 
-    state.products = (supabaseProducts.length ? supabaseProducts : localProducts).map((product) => {
+    state.products = (localProducts.length ? localProducts : supabaseProducts).map((product) => {
       const key = productKey(product);
       mergedKeys.add(key);
       return normalizeProductImageState(Object.assign({}, product, {
-        local_only: !supabaseProducts.length
+        local_only: Boolean(localProducts.length)
       }));
     });
     manualProducts.forEach((product) => {
@@ -207,8 +207,8 @@
     state.products = state.products.map(applyVisibilityOverride);
     state.products.sort(compareProducts);
     state.filtered = state.products.slice();
-    if (!supabaseProducts.length && localProducts.length) {
-      showStatus("Loaded from deployed catalog backup. Supabase product reads need schema/policy repair.");
+    if (localProducts.length) {
+      showStatus("Loaded from locked final catalog data.");
     } else {
       hideStatus();
     }

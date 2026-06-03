@@ -48,7 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
-  const LOCAL_IMAGE_VERSION = "20260603-image-fix";
+  const LOCAL_IMAGE_VERSION = "20260603-final-local";
   const state = {
     products: [],
     filtered: [],
@@ -171,40 +171,14 @@
   }
 
   async function readProducts() {
-    if (!config.supabaseUrl || !config.supabasePublishableKey) {
-      return readFromLocalJson();
-    }
-
-    const supabasePromise = readFromSupabase();
-    supabasePromise.catch(() => {});
-
     try {
-      return await withTimeout(supabasePromise, Number(config.supabaseTimeoutMs || 8000));
-    } catch (_error) {
-      const localProducts = await readFromLocalJson().catch(async (localError) => {
-        try {
-          return await supabasePromise;
-        } catch (_supabaseError) {
-          throw localError;
-        }
-      });
+      return await readFromLocalJson();
+    } catch (localError) {
+      if (!config.supabaseUrl || !config.supabasePublishableKey) {
+        throw localError;
+      }
 
-      supabasePromise.then(async (freshProducts) => {
-        const mergedProducts = mergeManualProducts(freshProducts, await readManualProductsFromStorage().catch(() => []));
-        if (productsSignature(mergedProducts) === productsSignature(state.products)) {
-          return;
-        }
-
-        state.productOrder = await readProductOrderFromStorage().catch(() => state.productOrder);
-        state.visibilityOverrides = new Map(
-          Object.entries(await readProductVisibilityFromStorage().catch(() => Object.fromEntries(state.visibilityOverrides)))
-            .map(([key, value]) => [key, value !== false])
-        );
-        setProducts(mergedProducts);
-        renderProducts();
-      }).catch(() => {});
-
-      return localProducts;
+      return await withTimeout(readFromSupabase(), Number(config.supabaseTimeoutMs || 8000));
     }
   }
 
