@@ -8,7 +8,7 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
-  const LOCAL_IMAGE_VERSION = "20260603-tj2124";
+  const LOCAL_IMAGE_VERSION = "20260603-tj2124-final";
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];
@@ -1611,11 +1611,12 @@
   }
 
   function hasProductImage(product) {
-    if (product.image_missing === true) {
+    const hasImage = Boolean(product && (product.image_url || product.image_path || product.image_storage_path));
+    if (product.image_missing === true && !hasImage) {
       return false;
     }
 
-    return Boolean(product.image_url || product.image_path || product.image_storage_path);
+    return hasImage;
   }
 
   function materialType(product) {

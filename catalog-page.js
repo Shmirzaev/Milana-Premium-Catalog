@@ -48,7 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
-  const LOCAL_IMAGE_VERSION = "20260603-tj2124";
+  const LOCAL_IMAGE_VERSION = "20260603-tj2124-final";
   const state = {
     products: [],
     filtered: [],
@@ -1026,11 +1026,12 @@
   }
 
   function hasProductImage(product) {
-    if (product.image_missing === true) {
+    const hasImage = Boolean(product && (product.image_url || product.image_path || product.image_storage_path));
+    if (product.image_missing === true && !hasImage) {
       return false;
     }
 
-    return Boolean(product.image_url || product.image_path || product.image_storage_path);
+    return hasImage;
   }
 
   function materialType(product) {
