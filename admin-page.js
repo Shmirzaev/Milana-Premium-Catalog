@@ -8,7 +8,7 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
-  const LOCAL_IMAGE_VERSION = "20260603-catalog123-images";
+  const LOCAL_IMAGE_VERSION = "20260603-manual-first";
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];
@@ -1514,8 +1514,14 @@
     return String(value || "").includes("/manual-edits/");
   }
 
+  function manualImageUrl(product) {
+    const explicitImage = String((product && product.image_url) || "").trim();
+    return isManualImageUrl(explicitImage) ? explicitImage : "";
+  }
+
   function adminImageFallbacks(product, currentImage) {
     return uniqueValues([
+      manualImageUrl(product),
       derivedLocalImageUrl(product),
       deployedImagePath(localProductImageUrl(product)),
       deployedImagePath(currentImage),

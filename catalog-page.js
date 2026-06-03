@@ -48,7 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
-  const LOCAL_IMAGE_VERSION = "20260603-catalog123-images";
+  const LOCAL_IMAGE_VERSION = "20260603-manual-first";
   const state = {
     products: [],
     filtered: [],
@@ -732,6 +732,7 @@
     }
 
     return uniqueValues([
+      manualImageUrl(product),
       derivedLocalImageUrl(product, "storage_images"),
       derivedLocalImageUrl(product, "images"),
       localProductImageUrl(product),
@@ -747,6 +748,7 @@
     }
 
     return uniqueValues([
+      manualImageUrl(product),
       derivedLocalImageUrl(product, "storage_images"),
       derivedLocalImageUrl(product, "images"),
       localProductImageUrl(product),
@@ -794,6 +796,11 @@
 
   function isManualImageUrl(value) {
     return String(value || "").includes("/manual-edits/");
+  }
+
+  function manualImageUrl(product) {
+    const explicitImage = String((product && product.image_url) || "").trim();
+    return isManualImageUrl(explicitImage) ? explicitImage : "";
   }
 
   function localStorageImageUrl(product) {
