@@ -8,6 +8,7 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
+  const LOCAL_IMAGE_VERSION = "20260603-image-fix";
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];
@@ -1478,11 +1479,11 @@
     const marker = "/outputs/catalog_processing/";
     const markerIndex = normalized.indexOf(marker);
     if (markerIndex >= 0) {
-      return "outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length);
+      return versionLocalImageUrl("outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length));
     }
 
     if (normalized.startsWith("outputs/")) {
-      return normalized;
+      return versionLocalImageUrl(normalized);
     }
 
     return "";
@@ -1493,6 +1494,15 @@
       "outputs/catalog_processing/images/latest/",
       "outputs/catalog_processing/storage_images/latest/"
     );
+  }
+
+  function versionLocalImageUrl(value) {
+    const url = String(value || "");
+    if (!url || url.includes("?") || !url.startsWith("outputs/")) {
+      return url;
+    }
+
+    return `${url}?v=${LOCAL_IMAGE_VERSION}`;
   }
 
   function adminImageFallbacks(product, currentImage) {
@@ -1513,7 +1523,7 @@
       return "";
     }
 
-    return `outputs/catalog_processing/storage_images/latest/${stem}_p${page}_c${card}.jpg`;
+    return versionLocalImageUrl(`outputs/catalog_processing/storage_images/latest/${stem}_p${page}_c${card}.jpg`);
   }
 
   function padNumber(value) {

@@ -48,6 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
+  const LOCAL_IMAGE_VERSION = "20260603-image-fix";
   const state = {
     products: [],
     filtered: [],
@@ -732,11 +733,11 @@
     const marker = "/outputs/catalog_processing/";
     const markerIndex = normalized.indexOf(marker);
     if (markerIndex >= 0) {
-      return "outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length);
+      return versionLocalImageUrl("outputs/catalog_processing/" + normalized.slice(markerIndex + marker.length));
     }
 
     if (normalized.startsWith("outputs/")) {
-      return normalized;
+      return versionLocalImageUrl(normalized);
     }
 
     return "";
@@ -832,7 +833,16 @@
       return "";
     }
 
-    return `outputs/catalog_processing/${folder}/latest/${stem}_p${page}_c${card}.jpg`;
+    return versionLocalImageUrl(`outputs/catalog_processing/${folder}/latest/${stem}_p${page}_c${card}.jpg`);
+  }
+
+  function versionLocalImageUrl(value) {
+    const url = String(value || "");
+    if (!url || url.includes("?") || !url.startsWith("outputs/")) {
+      return url;
+    }
+
+    return `${url}?v=${LOCAL_IMAGE_VERSION}`;
   }
 
   function safeSourceStem(value) {
