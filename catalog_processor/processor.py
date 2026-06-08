@@ -2058,7 +2058,7 @@ def create_supabase_image(
         image = image.convert("RGB")
         image.thumbnail((max_width, max_height))
         output_path = storage_image_dir / f"{safe_filename(image_path.stem)}.jpg"
-        image.save(output_path, "JPEG", quality=82, optimize=True, progressive=True)
+        image.save(output_path, "JPEG", quality=76, optimize=True, progressive=True)
         return output_path
 
 

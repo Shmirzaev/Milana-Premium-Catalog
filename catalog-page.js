@@ -48,7 +48,7 @@
   const DEFAULT_CARD_IMAGE_WIDTH = 520;
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
-  const LOCAL_IMAGE_VERSION = "20260603-manual-first";
+  const LOCAL_IMAGE_VERSION = "20260608-q76";
   const state = {
     products: [],
     filtered: [],
@@ -748,14 +748,15 @@
     }
 
     return uniqueValues([
+      manualPrintImageUrl(product),
       manualImageUrl(product),
       derivedLocalImageUrl(product, "storage_images"),
       derivedLocalImageUrl(product, "images"),
       localProductImageUrl(product),
       localStorageImageUrl(product),
       resolveImageUrl(product),
-      supabaseRenderImageUrl(product, 1600, 92),
-      supabaseRenderImageUrl(product, 1200, 92),
+      supabaseRenderImageUrl(product, 1200, 76),
+      supabaseRenderImageUrl(product, 1000, 74),
       product.image_url
     ]);
   }
@@ -801,6 +802,10 @@
   function manualImageUrl(product) {
     const explicitImage = String((product && product.image_url) || "").trim();
     return isManualImageUrl(explicitImage) ? explicitImage : "";
+  }
+
+  function manualPrintImageUrl(product) {
+    return manualImageUrl(product) ? supabaseRenderImageUrl(product, 1200, 76) : "";
   }
 
   function localStorageImageUrl(product) {
