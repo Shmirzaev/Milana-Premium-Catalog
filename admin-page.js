@@ -8,7 +8,10 @@
 
   const config = window.MILANA_CONFIG || {};
   const LEGACY_HIDDEN_STATUS = "admin_hidden";
-  const LOCAL_IMAGE_VERSION = "20260603-manual-first";
+  const LOCAL_IMAGE_VERSION = "20260608-q76";
+  const MANUAL_UPLOAD_MAX_WIDTH = 900;
+  const MANUAL_UPLOAD_MAX_HEIGHT = 1250;
+  const MANUAL_UPLOAD_JPEG_QUALITY = 0.76;
   const params = new URLSearchParams(window.location.search);
   const catalogId = Number(params.get("id")) || 1;
   const catalog = CATALOGS.find((item) => item.id === catalogId) || CATALOGS[0];
@@ -566,17 +569,22 @@
   async function uploadImage(file) {
     const bucket = config.imageBucket || "product-images";
     const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    const uploadFile = await optimizeImageUpload(file).catch((error) => {
+      console.warn(error);
+      return file;
+    });
     const safeName = file.name.replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/^-+|-+$/g, "") || "product.jpg";
-    const objectPath = `${prefix}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${safeName}`;
+    const objectName = uploadFile === file ? safeName : safeName.replace(/\.[^.]+$/, "") + ".jpg";
+    const objectPath = `${prefix}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${objectName}`;
     const response = await supabaseFetch(
       `/storage/v1/object/${encodeURIComponent(bucket)}/${pathEncode(objectPath)}`,
       {
         method: "POST",
         headers: {
-          "Content-Type": file.type || "application/octet-stream",
+          "Content-Type": uploadFile.type || "application/octet-stream",
           "x-upsert": "true"
         },
-        body: file
+        body: uploadFile
       }
     );
 
@@ -590,6 +598,49 @@
       path: objectPath,
       url: `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(objectPath)}`
     };
+  }
+
+  async function optimizeImageUpload(file) {
+    if (!file || !String(file.type || "").startsWith("image/") || file.type === "image/svg+xml") {
+      return file;
+    }
+
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(
+      1,
+      MANUAL_UPLOAD_MAX_WIDTH / bitmap.width,
+      MANUAL_UPLOAD_MAX_HEIGHT / bitmap.height
+    );
+    const width = Math.max(1, Math.round(bitmap.width * scale));
+    const height = Math.max(1, Math.round(bitmap.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext("2d", { alpha: false });
+    if (!context) {
+      bitmap.close();
+      return file;
+    }
+
+    context.fillStyle = "#fff";
+    context.fillRect(0, 0, width, height);
+    context.drawImage(bitmap, 0, 0, width, height);
+    bitmap.close();
+
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob((value) => {
+        value ? resolve(value) : reject(new Error("Picture could not be optimized."));
+      }, "image/jpeg", MANUAL_UPLOAD_JPEG_QUALITY);
+    });
+
+    if (!blob || blob.size >= file.size) {
+      return file;
+    }
+
+    return new File([blob], file.name.replace(/\.[^.]+$/, "") + ".jpg", {
+      type: "image/jpeg",
+      lastModified: Date.now()
+    });
   }
 
   function fileToDataUrl(file) {
