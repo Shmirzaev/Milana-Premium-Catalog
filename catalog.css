@@ -264,6 +264,31 @@ h1 {
   opacity: 0.64;
 }
 
+.toggle-prices {
+  min-width: 116px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font: 800 11px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.toggle-prices:hover,
+.toggle-prices[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: var(--ink);
+  color: #fff;
+}
+
+.prices-hidden .price {
+  display: none !important;
+}
+
 .status {
   margin: 20px 0;
   padding: 18px 20px;
@@ -530,6 +555,10 @@ h1 {
   }
 
   .export-pdf {
+    width: 100%;
+  }
+
+  .toggle-prices {
     width: 100%;
   }
 

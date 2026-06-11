@@ -49,11 +49,13 @@
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
   const LOCAL_IMAGE_VERSION = "20260608-q76";
+  const PRICE_VISIBILITY_STORAGE_KEY = "milana_catalog_show_prices";
   const state = {
     products: [],
     filtered: [],
     productOrder: [],
-    visibilityOverrides: new Map()
+    visibilityOverrides: new Map(),
+    showPrices: readStoredPriceVisibility()
   };
 
   const titleEl = document.getElementById("catalogTitle");
@@ -68,6 +70,7 @@
   const adminShortcut = document.getElementById("adminShortcut");
   const exportPdfButton = document.getElementById("exportPdf");
   const headerExportPdfButton = document.getElementById("headerExportPdf");
+  const togglePricesButton = document.getElementById("togglePrices");
 
   preconnectTo(config.supabaseUrl);
 
@@ -80,11 +83,19 @@
   document.querySelectorAll("[data-catalog-link]").forEach((link) => {
     link.classList.toggle("active", Number(link.dataset.catalogLink) === catalog.id);
   });
+  syncPriceVisibility();
 
   searchEl.addEventListener("input", () => {
     filterProducts();
     renderProducts();
   });
+  if (togglePricesButton) {
+    togglePricesButton.addEventListener("click", () => {
+      state.showPrices = !state.showPrices;
+      storePriceVisibility();
+      syncPriceVisibility();
+    });
+  }
   [exportPdfButton, headerExportPdfButton].filter(Boolean).forEach((button) => {
     button.addEventListener("click", exportCatalogPdf);
   });
@@ -582,6 +593,32 @@
     productModal.hidden = true;
     productModalCard.innerHTML = "";
     document.body.style.overflow = "";
+  }
+
+  function readStoredPriceVisibility() {
+    try {
+      return localStorage.getItem(PRICE_VISIBILITY_STORAGE_KEY) !== "false";
+    } catch (error) {
+      return true;
+    }
+  }
+
+  function storePriceVisibility() {
+    try {
+      localStorage.setItem(PRICE_VISIBILITY_STORAGE_KEY, state.showPrices ? "true" : "false");
+    } catch (error) {
+      // Browsing still works if storage is unavailable.
+    }
+  }
+
+  function syncPriceVisibility() {
+    document.body.classList.toggle("prices-hidden", !state.showPrices);
+    if (!togglePricesButton) {
+      return;
+    }
+
+    togglePricesButton.setAttribute("aria-pressed", String(!state.showPrices));
+    togglePricesButton.textContent = state.showPrices ? "Hide prices" : "Show prices";
   }
 
   async function exportCatalogPdf() {
