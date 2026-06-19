@@ -525,8 +525,11 @@
   }
 
   function productCardMarkup(product, index) {
-    const model = escapeHtml(product.model_code || product.product_code || "Model");
-    const code = escapeHtml(product.product_code || product.model_code || "");
+    const modelValue = product.model_code || product.product_code || "Model";
+    const codeValue = product.product_code || product.model_code || "";
+    const model = escapeHtml(modelValue);
+    const code = escapeHtml(codeValue);
+    const pdfSearch = escapeHtml(pdfSearchText(modelValue, codeValue));
     const imageFallbacks = productImageFallbacks(product);
     const fullImage = imageFallbacks[1] || imageFallbacks[0];
     const cardImage = imageFallbacks[0];
@@ -536,6 +539,7 @@
     const price = escapeHtml(formatPrice(product.price, product.currency));
     return `
       <article class="product-card" data-product-index="${index}" role="button" tabindex="0">
+        <span class="pdf-search-text" aria-hidden="true">${pdfSearch}</span>
         <div class="product-image">
           ${cardImage ? `<img
             src="${escapeAttribute(cardImage)}"
@@ -560,6 +564,37 @@
         </div>
       </article>
     `;
+  }
+
+  function pdfSearchText(...values) {
+    const seen = new Set();
+    const tokens = [];
+    const add = (value) => {
+      const clean = String(value || "").trim().replace(/\s+/g, " ");
+      const key = clean.toLowerCase();
+      if (!clean || seen.has(key)) {
+        return;
+      }
+
+      seen.add(key);
+      tokens.push(clean);
+    };
+
+    values.forEach((value) => {
+      const normalized = String(value || "")
+        .replace(/[\u2010-\u2015\u2212]/g, "-")
+        .trim();
+      if (!normalized) {
+        return;
+      }
+
+      add(normalized);
+      normalized.split(/[^A-Za-z0-9]+/).forEach(add);
+      add(normalized.replace(/[^A-Za-z0-9]+/g, ""));
+      (normalized.match(/\d+/g) || []).forEach(add);
+    });
+
+    return tokens.join(" ");
   }
 
   function openProductModal(index) {
