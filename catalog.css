@@ -616,6 +616,18 @@ h1 {
     print-color-adjust: exact;
   }
 
+  body,
+  .product-card,
+  .product-info,
+  .model,
+  .price,
+  .code,
+  .pdf-search-text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-kerning: none;
+    text-rendering: geometricPrecision;
+  }
+
   body {
     min-height: auto;
     background: #fff;
@@ -690,8 +702,10 @@ h1 {
     left: 1mm;
     bottom: 1mm;
     display: block;
-    color: #fff;
-    font: 1pt/1 Arial, sans-serif;
+    max-width: calc(100% - 2mm);
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.01);
+    font: 2pt/1 Arial, Helvetica, sans-serif !important;
     letter-spacing: 0;
     white-space: nowrap;
     pointer-events: none;
@@ -739,10 +753,11 @@ h1 {
   .price {
     font-size: 13pt;
     line-height: 1.15;
+    letter-spacing: 0;
   }
 
   .code {
     font-size: 8.2pt;
-    letter-spacing: 0.4pt;
+    letter-spacing: 0;
   }
 }
