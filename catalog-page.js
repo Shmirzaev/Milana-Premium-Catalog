@@ -49,13 +49,12 @@
   const EAGER_IMAGE_COUNT = 12;
   const HIGH_PRIORITY_IMAGE_COUNT = 6;
   const LOCAL_IMAGE_VERSION = "20260608-q76";
-  const PRICE_VISIBILITY_STORAGE_KEY = "milana_catalog_show_prices";
   const state = {
     products: [],
     filtered: [],
     productOrder: [],
     visibilityOverrides: new Map(),
-    showPrices: readStoredPriceVisibility()
+    showPrices: true
   };
 
   const titleEl = document.getElementById("catalogTitle");
@@ -70,7 +69,6 @@
   const adminShortcut = document.getElementById("adminShortcut");
   const exportPdfButton = document.getElementById("exportPdf");
   const headerExportPdfButton = document.getElementById("headerExportPdf");
-  const togglePricesButton = document.getElementById("togglePrices");
 
   preconnectTo(config.supabaseUrl);
 
@@ -89,13 +87,6 @@
     filterProducts();
     renderProducts();
   });
-  if (togglePricesButton) {
-    togglePricesButton.addEventListener("click", () => {
-      state.showPrices = !state.showPrices;
-      storePriceVisibility();
-      syncPriceVisibility();
-    });
-  }
   [exportPdfButton, headerExportPdfButton].filter(Boolean).forEach((button) => {
     button.addEventListener("click", exportCatalogPdf);
   });
@@ -144,12 +135,15 @@
 
   async function loadProducts() {
     showStatus("Loading products...");
-    const [products, manualProducts, productOrder, visibilityOverrides] = await Promise.all([
+    const [products, manualProducts, productOrder, visibilityOverrides, catalogSettings] = await Promise.all([
       readProducts(),
       readManualProductsFromStorage().catch(() => []),
       readProductOrderFromStorage().catch(() => []),
-      readProductVisibilityFromStorage().catch(() => ({}))
+      readProductVisibilityFromStorage().catch(() => ({})),
+      readCatalogSettingsFromStorage().catch(() => ({}))
     ]);
+    state.showPrices = catalogSettings.show_prices !== false;
+    syncPriceVisibility();
     state.productOrder = productOrder;
     state.visibilityOverrides = new Map(
       Object.entries(visibilityOverrides).map(([key, value]) => [key, value !== false])
@@ -489,6 +483,50 @@
     return `${prefix}/product-visibility/${safeSourceStem(catalog.sourcePdf)}.json`;
   }
 
+  async function readCatalogSettingsFromStorage() {
+    const localSettings = readLocalCatalogSettings();
+    if (!config.supabaseUrl) {
+      return localSettings;
+    }
+
+    const response = await fetch(catalogSettingsStorageUrl(), { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return localSettings;
+    }
+
+    const payload = await response.json();
+    return catalogSettingsObject(payload);
+  }
+
+  function catalogSettingsStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    const cacheBust = "v=" + encodeURIComponent(String(Date.now()));
+    return `${String(config.supabaseUrl || "").replace(/\/+$/, "")}/storage/v1/object/public/${encodeURIComponent(bucket)}/${encodeStoragePath(catalogSettingsStoragePath())}?${cacheBust}`;
+  }
+
+  function catalogSettingsStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/catalog-settings/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  function readLocalCatalogSettings() {
+    try {
+      return catalogSettingsObject(JSON.parse(localStorage.getItem(localCatalogSettingsStorageKey()) || "{}"));
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function localCatalogSettingsStorageKey() {
+    return `milana_catalog_settings_${safeSourceStem(catalog.sourcePdf)}`;
+  }
+
+  function catalogSettingsObject(settings) {
+    return settings && typeof settings === "object" && !Array.isArray(settings)
+      ? settings
+      : {};
+  }
+
   function isVisible(product) {
     return product.is_visible !== false && product.extraction_status !== LEGACY_HIDDEN_STATUS;
   }
@@ -630,30 +668,8 @@
     document.body.style.overflow = "";
   }
 
-  function readStoredPriceVisibility() {
-    try {
-      return localStorage.getItem(PRICE_VISIBILITY_STORAGE_KEY) !== "false";
-    } catch (error) {
-      return true;
-    }
-  }
-
-  function storePriceVisibility() {
-    try {
-      localStorage.setItem(PRICE_VISIBILITY_STORAGE_KEY, state.showPrices ? "true" : "false");
-    } catch (error) {
-      // Browsing still works if storage is unavailable.
-    }
-  }
-
   function syncPriceVisibility() {
     document.body.classList.toggle("prices-hidden", !state.showPrices);
-    if (!togglePricesButton) {
-      return;
-    }
-
-    togglePricesButton.setAttribute("aria-pressed", String(!state.showPrices));
-    togglePricesButton.textContent = state.showPrices ? "Hide prices" : "Show prices";
   }
 
   async function exportCatalogPdf() {

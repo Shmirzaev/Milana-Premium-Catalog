@@ -267,6 +267,7 @@ h1 {
 .toggle-prices {
   min-width: 116px;
   height: 44px;
+  padding: 0 14px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
@@ -283,6 +284,11 @@ h1 {
   border-color: var(--gold);
   background: var(--ink);
   color: #fff;
+}
+
+.toggle-prices:disabled {
+  cursor: wait;
+  opacity: 0.64;
 }
 
 .prices-hidden .price {

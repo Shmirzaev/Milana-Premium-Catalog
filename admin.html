@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="catalog.css?v=20260601-catalog4-checked-images"/>
-  <link rel="stylesheet" href="admin.css?v=20260602-visible-move-buttons"/>
+  <link rel="stylesheet" href="catalog.css?v=20260624-admin-price-setting"/>
+  <link rel="stylesheet" href="admin.css?v=20260624-admin-price-setting"/>
 </head>
 <body>
   <header class="site-header">
@@ -63,6 +63,7 @@
             <input id="productSearch" type="search" autocomplete="off" placeholder="Model or code"/>
           </label>
           <p class="count" id="productCount">Loading</p>
+          <button class="toggle-prices" id="toggleClientPrices" type="button" aria-pressed="false">Hide client prices</button>
           <button class="primary-action admin-add-button" id="addProductButton" type="button">Add model</button>
         </div>
       </section>
@@ -131,6 +132,6 @@
   </div>
 
   <script src="site-config.js"></script>
-  <script src="admin-page.js?v=20260603-manual-first"></script>
+  <script src="admin-page.js?v=20260624-admin-price-setting"></script>
 </body>
 </html>

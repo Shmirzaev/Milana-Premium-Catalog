@@ -23,7 +23,9 @@
     creating: false,
     productOrder: [],
     visibilityOverrides: new Map(),
-    draggingProductKey: ""
+    draggingProductKey: "",
+    catalogSettings: { show_prices: true },
+    savingCatalogSettings: false
   };
 
   const loginPanel = document.getElementById("loginPanel");
@@ -41,6 +43,7 @@
   const editForm = document.getElementById("editForm");
   const editMessage = document.getElementById("editMessage");
   const addProductButton = document.getElementById("addProductButton");
+  const toggleClientPricesButton = document.getElementById("toggleClientPrices");
 
   titleEl.textContent = catalog.title;
   numberEl.textContent = "Catalog 0" + catalog.id;
@@ -51,6 +54,9 @@
   loginForm.addEventListener("submit", handleLogin);
   logoutButton.addEventListener("click", logout);
   addProductButton.addEventListener("click", openCreator);
+  if (toggleClientPricesButton) {
+    toggleClientPricesButton.addEventListener("click", toggleClientPriceVisibility);
+  }
   searchEl.addEventListener("input", applySearch);
   gridEl.addEventListener("error", handleGridImageError, true);
   gridEl.addEventListener("dragstart", handleDragStart);
@@ -166,12 +172,13 @@
 
   async function loadProducts() {
     showStatus("Loading products...");
-    const [localResult, supabaseResult, manualResult, orderResult, visibilityResult] = await Promise.allSettled([
+    const [localResult, supabaseResult, manualResult, orderResult, visibilityResult, settingsResult] = await Promise.allSettled([
       readProductsFromLocalJson(),
       readProductsFromSupabase(),
       readManualProductsFromStorage(),
       readProductOrderFromStorage(),
-      readProductVisibilityFromStorage()
+      readProductVisibilityFromStorage(),
+      readCatalogSettingsFromStorage()
     ]);
     const localProducts = localResult.status === "fulfilled" ? localResult.value : [];
     const supabaseProducts = supabaseResult.status === "fulfilled" ? supabaseResult.value : [];
@@ -181,6 +188,8 @@
       Object.entries(visibilityResult.status === "fulfilled" ? visibilityResult.value : {})
         .map(([key, value]) => [key, value !== false])
     );
+    state.catalogSettings = normalizeCatalogSettings(settingsResult.status === "fulfilled" ? settingsResult.value : {});
+    syncClientPriceToggle();
     if (!localProducts.length && !supabaseProducts.length) {
       const error = supabaseResult.status === "rejected" ? supabaseResult.reason : localResult.reason;
       throw new Error((error && error.message) || "Main catalog products could not be loaded.");
@@ -897,6 +906,123 @@
   function productVisibilityStoragePath() {
     const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
     return `${prefix}/product-visibility/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  async function readCatalogSettingsFromStorage() {
+    const localPayload = readLocalCatalogSettings();
+    if (!config.supabaseUrl) {
+      return normalizeCatalogSettings(localPayload);
+    }
+
+    const response = await fetch(catalogSettingsStorageUrl(), { cache: "no-store" });
+    if (response.status === 404 || !response.ok) {
+      return normalizeCatalogSettings(localPayload);
+    }
+
+    const payload = await response.json();
+    if (localPayload.pending_remote_write || isNewerCatalogSettingsPayload(localPayload, payload)) {
+      return normalizeCatalogSettings(Object.assign({}, payload, localPayload));
+    }
+
+    return normalizeCatalogSettings(Object.assign({}, localPayload, payload));
+  }
+
+  async function writeCatalogSettingsToStorage() {
+    const payload = {
+      source_pdf: catalog.sourcePdf,
+      updated_at: new Date().toISOString(),
+      show_prices: state.catalogSettings.show_prices !== false
+    };
+    writeLocalCatalogSettings(true, payload);
+    if (!config.supabaseUrl) {
+      writeLocalCatalogSettings(false, payload);
+      return;
+    }
+
+    await writeCatalogListToStorage(catalogSettingsStoragePath(), payload);
+    writeLocalCatalogSettings(false, payload);
+  }
+
+  function catalogSettingsStorageUrl() {
+    const bucket = config.imageBucket || "product-images";
+    const cacheBust = "v=" + encodeURIComponent(String(Date.now()));
+    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(catalogSettingsStoragePath())}?${cacheBust}`;
+  }
+
+  function catalogSettingsStoragePath() {
+    const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
+    return `${prefix}/catalog-settings/${safeSourceStem(catalog.sourcePdf)}.json`;
+  }
+
+  function readLocalCatalogSettings() {
+    try {
+      const payload = JSON.parse(localStorage.getItem(localCatalogSettingsStorageKey()) || "{}");
+      return payload && typeof payload === "object" && !Array.isArray(payload)
+        ? payload
+        : {};
+    } catch (_error) {
+      return {};
+    }
+  }
+
+  function writeLocalCatalogSettings(pendingRemoteWrite, payload) {
+    localStorage.setItem(localCatalogSettingsStorageKey(), JSON.stringify(Object.assign({}, payload, {
+      pending_remote_write: pendingRemoteWrite === true
+    })));
+  }
+
+  function localCatalogSettingsStorageKey() {
+    return `milana_catalog_settings_${safeSourceStem(catalog.sourcePdf)}`;
+  }
+
+  function isNewerCatalogSettingsPayload(candidate, reference) {
+    const candidateTime = Date.parse(candidate && candidate.updated_at || "");
+    const referenceTime = Date.parse(reference && reference.updated_at || "");
+    return Number.isFinite(candidateTime) && Number.isFinite(referenceTime) && candidateTime >= referenceTime;
+  }
+
+  function normalizeCatalogSettings(settings) {
+    return {
+      show_prices: !(settings && settings.show_prices === false)
+    };
+  }
+
+  async function toggleClientPriceVisibility() {
+    if (state.savingCatalogSettings) {
+      return;
+    }
+
+    const previousShowPrices = state.catalogSettings.show_prices !== false;
+    state.catalogSettings = { show_prices: !previousShowPrices };
+    state.savingCatalogSettings = true;
+    syncClientPriceToggle();
+
+    try {
+      await writeCatalogSettingsToStorage();
+      showStatus(state.catalogSettings.show_prices ? "Client catalog prices are now visible." : "Client catalog prices are now hidden.");
+    } catch (error) {
+      console.warn(error);
+      state.catalogSettings = { show_prices: previousShowPrices };
+      showStatus(error.message || "Client price setting could not be saved.");
+    } finally {
+      state.savingCatalogSettings = false;
+      syncClientPriceToggle();
+    }
+  }
+
+  function syncClientPriceToggle() {
+    if (!toggleClientPricesButton) {
+      return;
+    }
+
+    const showPrices = state.catalogSettings.show_prices !== false;
+    toggleClientPricesButton.disabled = state.savingCatalogSettings;
+    toggleClientPricesButton.setAttribute("aria-pressed", String(!showPrices));
+    toggleClientPricesButton.textContent = state.savingCatalogSettings
+      ? "Saving..."
+      : showPrices
+        ? "Hide client prices"
+        : "Show client prices";
   }
 
   function readLocalVisibilityOverrides() {
