@@ -224,6 +224,43 @@
   color: #fff;
 }
 
+.catalog-move-actions {
+  display: grid;
+  grid-template-columns: auto repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.catalog-move-actions span {
+  color: var(--muted);
+  font: 700 9px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.catalog-move-actions button {
+  min-height: 30px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  font: 700 10px/1 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.catalog-move-actions button:hover {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.catalog-move-actions button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
 .visibility-switch {
   position: absolute;
   top: 48px;

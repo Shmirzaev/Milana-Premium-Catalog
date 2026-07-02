@@ -22,6 +22,7 @@
     editing: null,
     creating: false,
     productOrder: [],
+    baseProductKeys: new Set(),
     visibilityOverrides: new Map(),
     draggingProductKey: "",
     catalogSettings: { show_prices: true },
@@ -72,6 +73,12 @@
     const moveButton = event.target.closest("[data-move-action]");
     if (moveButton) {
       moveProduct(moveButton.dataset.productKey, moveButton.dataset.moveAction);
+      return;
+    }
+
+    const catalogMoveButton = event.target.closest("[data-move-catalog]");
+    if (catalogMoveButton) {
+      moveProductToCatalog(catalogMoveButton.dataset.productKey, Number(catalogMoveButton.dataset.moveCatalog));
       return;
     }
 
@@ -195,11 +202,10 @@
       throw new Error((error && error.message) || "Main catalog products could not be loaded.");
     }
 
-    const mergedKeys = new Set();
-
+    state.baseProductKeys = new Set();
     state.products = (localProducts.length ? localProducts : supabaseProducts).map((product) => {
       const key = productKey(product);
-      mergedKeys.add(key);
+      state.baseProductKeys.add(key);
       return normalizeProductImageState(Object.assign({}, product, {
         local_only: Boolean(localProducts.length)
       }));
@@ -210,7 +216,6 @@
       if (existingIndex >= 0) {
         state.products[existingIndex] = normalizeProductImageState(Object.assign({}, state.products[existingIndex], product));
       } else {
-        mergedKeys.add(key);
         state.products.push(normalizeProductImageState(product));
       }
     });
@@ -227,8 +232,8 @@
     renderProducts();
   }
 
-  async function readProductsFromSupabase() {
-    const source = encodeURIComponent(catalog.sourcePdf);
+  async function readProductsFromSupabase(catalogRef = catalog) {
+    const source = encodeURIComponent(catalogRef.sourcePdf);
     const table = encodeURIComponent(config.table || "milana_products");
     const select = [
       "id",
@@ -274,7 +279,7 @@
     return products;
   }
 
-  async function readProductsFromLocalJson() {
+  async function readProductsFromLocalJson(catalogRef = catalog) {
     const response = await fetch(config.localJson || "outputs/catalog_processing/milana_products_latest.json", {
       cache: "no-store"
     });
@@ -285,7 +290,7 @@
 
     const products = await response.json();
     return products
-      .filter((item) => item && item.source_pdf === catalog.sourcePdf)
+      .filter((item) => item && item.source_pdf === catalogRef.sourcePdf)
       .sort((a, b) => Number(a.page || 0) - Number(b.page || 0) || Number(a.card_index || 0) - Number(b.card_index || 0))
       .map((item) => Object.assign({}, item, {
         id: item.id || `${item.source_pdf}:${item.page}:${item.card_index}`,
@@ -314,8 +319,8 @@
     return Boolean(product && (product.image_url || product.image_path || product.image_storage_path));
   }
 
-  function removeCatalog4ImagePlaceholders(products) {
-    if (catalog.id !== 4) {
+  function removeCatalog4ImagePlaceholders(products, catalogRef = catalog) {
+    if (catalogRef.id !== 4) {
       return products;
     }
 
@@ -342,7 +347,11 @@
   }
 
   function compareProducts(a, b) {
-    const order = new Map(state.productOrder.map((key, index) => [key, index]));
+    return compareProductsByOrder(state.productOrder, a, b);
+  }
+
+  function compareProductsByOrder(productOrder, a, b) {
+    const order = new Map((productOrder || []).map((key, index) => [key, index]));
     const aIndex = order.has(productKey(a)) ? order.get(productKey(a)) : Number.POSITIVE_INFINITY;
     const bIndex = order.has(productKey(b)) ? order.get(productKey(b)) : Number.POSITIVE_INFINITY;
     if (aIndex !== bIndex) {
@@ -356,8 +365,8 @@
     return product.is_visible !== false && product.extraction_status !== LEGACY_HIDDEN_STATUS;
   }
 
-  function nextProductPosition() {
-    const maxPage = state.products.reduce((max, product) => Math.max(max, Number(product.page || 0)), 0);
+  function nextProductPosition(products = state.products) {
+    const maxPage = (products || []).reduce((max, product) => Math.max(max, Number(product.page || 0)), 0);
     return {
       page: maxPage + 1,
       cardIndex: 1
@@ -382,6 +391,14 @@
       const price = escapeHtml(formatPrice(product.price, product.currency));
       const visible = isVisible(product);
       const key = escapeAttribute(productKey(product));
+      const movingCatalog = product.moving_catalog === true;
+      const catalogMoveButtons = CATALOGS
+        .filter((item) => item.id !== catalog.id)
+        .map((item) => {
+          const targetLabel = String(item.id).padStart(2, "0");
+          return `<button type="button" data-move-catalog="${item.id}" data-product-key="${key}" title="Move to ${escapeAttribute(item.title)}" aria-label="Move to Catalog ${targetLabel}" ${movingCatalog ? "disabled" : ""}>${targetLabel}</button>`;
+        })
+        .join("");
       return `
         <article class="product-card${visible ? "" : " is-off"}" draggable="true" data-product-key="${key}">
           ${visible ? "" : '<span class="visibility-badge">Off</span>'}
@@ -415,6 +432,10 @@
               <button type="button" data-move-action="top" data-product-key="${key}">Top</button>
               <button type="button" data-move-action="left" data-product-key="${key}">Left</button>
               <button type="button" data-move-action="right" data-product-key="${key}">Right</button>
+            </div>
+            <div class="catalog-move-actions" aria-label="Move to catalog">
+              <span>Move to</span>
+              ${catalogMoveButtons}
             </div>
           </div>
         </article>
@@ -669,12 +690,12 @@
     });
   }
 
-  async function readManualProductsFromStorage() {
+  async function readManualProductsFromStorage(sourcePdf = catalog.sourcePdf) {
     if (!config.supabaseUrl) {
       return [];
     }
 
-    const response = await fetch(manualProductsStorageUrl(), {
+    const response = await fetch(manualProductsStorageUrl(sourcePdf), {
       cache: "no-store"
     });
     if (response.status === 404 || !response.ok) {
@@ -684,25 +705,26 @@
     const products = await response.json();
     return Array.isArray(products)
       ? products
-        .filter((product) => product && product.source_pdf === catalog.sourcePdf)
-        .map(normalizeManualProduct)
+        .filter(Boolean)
+        .map((product) => normalizeManualProduct(product, sourcePdf))
+        .filter((product) => product.source_pdf === sourcePdf)
       : [];
   }
 
-  async function saveManualProductToStorage(row) {
-    const products = await readManualProductsFromStorage().catch(() => []);
+  async function saveManualProductToStorage(row, sourcePdf = catalog.sourcePdf, productOrder = state.productOrder) {
+    const products = await readManualProductsFromStorage(sourcePdf).catch(() => []);
     const manualProduct = normalizeManualProduct(Object.assign({}, row, {
-      id: row.id || manualProductId(row),
+      id: row.id || manualProductId(row, sourcePdf),
       source_system: "milana_manual_admin",
       manual_storage: true,
       local_only: false
-    }));
+    }), sourcePdf);
     const nextProducts = products
       .filter((product) => productKey(product) !== productKey(manualProduct))
       .concat(manualProduct)
-      .sort(compareProducts);
+      .sort((a, b) => compareProductsByOrder(productOrder, a, b));
 
-    await writeManualProductsToStorage(nextProducts);
+    await writeManualProductsToStorage(nextProducts, sourcePdf);
     return manualProduct;
   }
 
@@ -735,26 +757,32 @@
     return saveManualProductToStorage(row);
   }
 
-  async function updateManualProduct(product, payload) {
-    const products = await readManualProductsFromStorage().catch(() => []);
+  async function updateManualProduct(product, payload, sourcePdf = product.source_pdf || catalog.sourcePdf, productOrder = state.productOrder) {
+    const products = await readManualProductsFromStorage(sourcePdf).catch(() => []);
     const updated = normalizeManualProduct(Object.assign({}, product, payload, {
-      id: product.id || manualProductId(product),
+      id: product.id || manualProductId(product, sourcePdf),
       manual_storage: true,
       local_only: false
-    }));
+    }), sourcePdf);
     const nextProducts = products
       .filter((item) => productKey(item) !== productKey(product))
       .concat(updated)
-      .sort(compareProducts);
+      .sort((a, b) => compareProductsByOrder(productOrder, a, b));
 
-    await writeManualProductsToStorage(nextProducts);
+    await writeManualProductsToStorage(nextProducts, sourcePdf);
     return updated;
   }
 
-  async function writeManualProductsToStorage(products) {
+  async function removeManualProductFromStorage(product, sourcePdf = catalog.sourcePdf) {
+    const products = await readManualProductsFromStorage(sourcePdf).catch(() => []);
+    const nextProducts = products.filter((item) => productKey(item) !== productKey(product));
+    await writeManualProductsToStorage(nextProducts, sourcePdf);
+  }
+
+  async function writeManualProductsToStorage(products, sourcePdf = catalog.sourcePdf) {
     const bucket = config.imageBucket || "product-images";
     const response = await supabaseFetch(
-      `/storage/v1/object/${encodeURIComponent(bucket)}/${pathEncode(manualProductsStoragePath())}`,
+      `/storage/v1/object/${encodeURIComponent(bucket)}/${pathEncode(manualProductsStoragePath(sourcePdf))}`,
       {
         method: "POST",
         headers: {
@@ -771,11 +799,11 @@
     }
   }
 
-  function normalizeManualProduct(product) {
+  function normalizeManualProduct(product, sourcePdf = catalog.sourcePdf) {
     const hasImage = Boolean(product.image_url || product.image_path || product.image_storage_path);
     return Object.assign({}, product, {
-      id: product.id || manualProductId(product),
-      source_pdf: product.source_pdf || catalog.sourcePdf,
+      id: product.id || manualProductId(product, sourcePdf),
+      source_pdf: product.source_pdf || sourcePdf,
       currency: product.currency || "USD",
       extraction_status: product.extraction_status || "manual",
       image_missing: hasImage ? false : product.image_missing === true,
@@ -785,35 +813,34 @@
     });
   }
 
-  function manualProductId(product) {
+  function manualProductId(product, sourcePdf = catalog.sourcePdf) {
     return [
       "manual-storage",
-      product.source_pdf || catalog.sourcePdf,
+      product.source_pdf || sourcePdf,
       Number(product.page || 0),
       Number(product.card_index || 0)
     ].join(":");
   }
 
-  function manualProductsStorageUrl() {
+  function manualProductsStorageUrl(sourcePdf = catalog.sourcePdf) {
     const bucket = config.imageBucket || "product-images";
-    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(manualProductsStoragePath())}`;
+    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(manualProductsStoragePath(sourcePdf))}`;
   }
 
-  function manualProductsStoragePath() {
+  function manualProductsStoragePath(sourcePdf = catalog.sourcePdf) {
     const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
-    return `${prefix}/manual-products/${safeSourceStem(catalog.sourcePdf)}.json`;
+    return `${prefix}/manual-products/${safeSourceStem(sourcePdf)}.json`;
   }
 
-  async function readProductOrderFromStorage() {
-    return readCatalogListFromStorage(productOrderStorageUrl(), "order");
+  async function readProductOrderFromStorage(sourcePdf = catalog.sourcePdf) {
+    return readCatalogListFromStorage(productOrderStorageUrl(sourcePdf), "order");
   }
 
-  async function writeProductOrderToStorage() {
-    state.productOrder = state.products.map(productKey);
-    return writeCatalogListToStorage(productOrderStoragePath(), {
-      source_pdf: catalog.sourcePdf,
+  async function writeProductOrderToStorage(sourcePdf = catalog.sourcePdf, productOrder = state.productOrder) {
+    return writeCatalogListToStorage(productOrderStoragePath(sourcePdf), {
+      source_pdf: sourcePdf,
       updated_at: new Date().toISOString(),
-      order: state.productOrder
+      order: productOrder
     });
   }
 
@@ -852,14 +879,14 @@
     }
   }
 
-  function productOrderStorageUrl() {
+  function productOrderStorageUrl(sourcePdf = catalog.sourcePdf) {
     const bucket = config.imageBucket || "product-images";
-    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(productOrderStoragePath())}`;
+    return `${baseUrl()}/storage/v1/object/public/${encodeURIComponent(bucket)}/${pathEncode(productOrderStoragePath(sourcePdf))}`;
   }
 
-  function productOrderStoragePath() {
+  function productOrderStoragePath(sourcePdf = catalog.sourcePdf) {
     const prefix = (config.adminImagePrefix || "manual-edits").replace(/^\/+|\/+$/g, "");
-    return `${prefix}/product-order/${safeSourceStem(catalog.sourcePdf)}.json`;
+    return `${prefix}/product-order/${safeSourceStem(sourcePdf)}.json`;
   }
 
   async function readProductVisibilityFromStorage() {
@@ -1493,6 +1520,122 @@
     } catch (error) {
       showStatus(error.message || "Card order could not be saved.");
     }
+  }
+
+  async function moveProductToCatalog(sourceKey, targetCatalogId) {
+    const product = state.products.find((item) => productKey(item) === String(sourceKey));
+    const targetCatalog = CATALOGS.find((item) => item.id === targetCatalogId);
+    if (!product || !targetCatalog || targetCatalog.id === catalog.id || product.moving_catalog) {
+      return;
+    }
+
+    const targetLabel = "Catalog " + String(targetCatalog.id).padStart(2, "0");
+    const productLabel = product.model_code || product.product_code || "this card";
+    if (!window.confirm(`Move ${productLabel} to ${targetLabel}?`)) {
+      return;
+    }
+
+    product.moving_catalog = true;
+    applySearch();
+    showStatus(`Moving ${productLabel} to ${targetLabel}...`);
+
+    try {
+      const targetState = await readCatalogProductsForMove(targetCatalog);
+      const movedProduct = movedProductPayload(product, targetCatalog, nextProductPosition(targetState.products));
+      const movedKey = productKey(movedProduct);
+      const nextTargetProducts = targetState.products
+        .filter((item) => productKey(item) !== movedKey)
+        .concat(movedProduct)
+        .sort((a, b) => compareProductsByOrder(targetState.productOrder, a, b));
+      const nextTargetOrder = nextTargetProducts.map(productKey);
+
+      await saveManualProductToStorage(movedProduct, targetCatalog.sourcePdf, nextTargetOrder);
+      await writeProductOrderToStorage(targetCatalog.sourcePdf, nextTargetOrder).catch((error) => console.warn(error));
+      await removeSourceProductAfterCatalogMove(product, sourceKey);
+
+      state.products = state.products.filter((item) => productKey(item) !== String(sourceKey));
+      state.productOrder = state.products.map(productKey);
+      applySearch();
+      saveProductOrder().catch((error) => console.warn(error));
+      showStatus(`Moved ${productLabel} to ${targetLabel}.`);
+    } catch (error) {
+      product.moving_catalog = false;
+      applySearch();
+      showStatus(error.message || "Card could not be moved.");
+    }
+  }
+
+  async function readCatalogProductsForMove(targetCatalog) {
+    const [localResult, supabaseResult, manualResult, orderResult] = await Promise.allSettled([
+      readProductsFromLocalJson(targetCatalog),
+      readProductsFromSupabase(targetCatalog),
+      readManualProductsFromStorage(targetCatalog.sourcePdf),
+      readProductOrderFromStorage(targetCatalog.sourcePdf)
+    ]);
+    const localProducts = localResult.status === "fulfilled" ? localResult.value : [];
+    const supabaseProducts = supabaseResult.status === "fulfilled" ? supabaseResult.value : [];
+    const manualProducts = manualResult.status === "fulfilled" ? manualResult.value : [];
+    const productOrder = orderResult.status === "fulfilled" ? orderResult.value : [];
+
+    if (!localProducts.length && !supabaseProducts.length && !manualProducts.length && localResult.status === "rejected" && supabaseResult.status === "rejected") {
+      throw new Error("Target catalog products could not be loaded.");
+    }
+
+    const products = (localProducts.length ? localProducts : supabaseProducts).map((product) => normalizeProductImageState(Object.assign({}, product)));
+    manualProducts.forEach((product) => {
+      const key = productKey(product);
+      const existingIndex = products.findIndex((item) => productKey(item) === key);
+      if (existingIndex >= 0) {
+        products[existingIndex] = normalizeProductImageState(Object.assign({}, products[existingIndex], product));
+      } else {
+        products.push(normalizeProductImageState(product));
+      }
+    });
+
+    return {
+      products: removeCatalog4ImagePlaceholders(products, targetCatalog)
+        .sort((a, b) => compareProductsByOrder(productOrder, a, b)),
+      productOrder
+    };
+  }
+
+  function movedProductPayload(product, targetCatalog, position) {
+    const visible = isVisible(product);
+    const moved = Object.assign({}, product, {
+      id: "",
+      source_system: "milana_manual_admin",
+      run_id: "manual-move-" + new Date().toISOString(),
+      catalog_date: new Date().toISOString().slice(0, 10),
+      source_pdf: targetCatalog.sourcePdf,
+      source_pdf_path: null,
+      page: position.page,
+      card_index: position.cardIndex,
+      extraction_status: visible ? "manual" : LEGACY_HIDDEN_STATUS,
+      is_visible: visible,
+      image_missing: hasProductImage(product) ? false : product.image_missing === true,
+      manual_storage: true,
+      local_only: false
+    });
+    delete moved.moving_catalog;
+    delete moved.saving_visibility;
+    return normalizeManualProduct(moved, targetCatalog.sourcePdf);
+  }
+
+  async function removeSourceProductAfterCatalogMove(product, sourceKey) {
+    if (product.manual_storage && !state.baseProductKeys.has(String(sourceKey))) {
+      await removeManualProductFromStorage(product, catalog.sourcePdf);
+      state.visibilityOverrides.delete(String(sourceKey));
+      await writeProductVisibilityToStorage().catch((error) => console.warn(error));
+      return;
+    }
+
+    state.visibilityOverrides.set(String(sourceKey), false);
+    Object.assign(product, {
+      is_visible: false,
+      extraction_status: LEGACY_HIDDEN_STATUS,
+      saving_visibility: false
+    });
+    await persistVisibilityChange(product, String(sourceKey), { is_visible: false }, false);
   }
 
   async function saveProductOrder() {
