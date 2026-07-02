@@ -158,8 +158,8 @@
 
 .drag-handle {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  right: 10px;
+  bottom: 10px;
   z-index: 3;
   width: 34px;
   height: 34px;
@@ -177,8 +177,8 @@
 
 .move-controls {
   position: absolute;
-  top: 48px;
-  left: 10px;
+  right: 48px;
+  bottom: 10px;
   z-index: 3;
   display: grid;
   grid-template-columns: repeat(3, 28px);

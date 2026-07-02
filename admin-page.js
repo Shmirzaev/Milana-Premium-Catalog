@@ -402,12 +402,6 @@
       return `
         <article class="product-card${visible ? "" : " is-off"}" draggable="true" data-product-key="${key}">
           ${visible ? "" : '<span class="visibility-badge">Off</span>'}
-          <button class="drag-handle" type="button" data-drag-handle title="Drag to reorder" aria-label="Drag to reorder">::</button>
-          <div class="move-controls" aria-label="Move card">
-            <button type="button" data-move-action="top" data-product-key="${key}" title="Move to top" aria-label="Move to top">&#8679;</button>
-            <button type="button" data-move-action="up" data-product-key="${key}" title="Move up" aria-label="Move up">&#8593;</button>
-            <button type="button" data-move-action="down" data-product-key="${key}" title="Move down" aria-label="Move down">&#8595;</button>
-          </div>
           <button class="edit-button" type="button" data-edit-key="${key}">Edit</button>
           <button
             class="visibility-switch ${visible ? "is-on" : "is-off"}${product.saving_visibility ? " is-saving" : ""}"
@@ -420,6 +414,12 @@
             <span class="switch-knob" aria-hidden="true"></span>
           </button>
           <div class="product-image">
+            <div class="move-controls" aria-label="Move card">
+              <button type="button" data-move-action="top" data-product-key="${key}" title="Move to top" aria-label="Move to top">&#8679;</button>
+              <button type="button" data-move-action="up" data-product-key="${key}" title="Move up" aria-label="Move up">&#8593;</button>
+              <button type="button" data-move-action="down" data-product-key="${key}" title="Move down" aria-label="Move down">&#8595;</button>
+            </div>
+            <button class="drag-handle" type="button" data-drag-handle title="Drag to reorder" aria-label="Drag to reorder">::</button>
             ${image ? `<img src="${escapeAttribute(image)}" alt="${model}" loading="lazy" data-fallback-srcs="${escapeAttribute(JSON.stringify(imageFallbacks))}">` : '<div class="missing-image">No image</div>'}
           </div>
           <div class="product-info">
