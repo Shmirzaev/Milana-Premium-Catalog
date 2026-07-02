@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="catalog.css?v=20260624-admin-price-setting"/>
-  <link rel="stylesheet" href="admin.css?v=20260702-sticky-admin-search"/>
+  <link rel="stylesheet" href="admin.css?v=20260702-compact-sticky-toolbar"/>
 </head>
 <body>
   <header class="site-header">
@@ -45,12 +45,15 @@
     </section>
 
     <section class="admin-workspace" id="adminWorkspace" hidden>
-      <section class="catalog-head">
+      <section class="catalog-head admin-catalog-title">
         <a class="back-link" href="index.html">Back to catalogs</a>
         <div>
           <p class="eyebrow" id="catalogNumber">Catalog</p>
           <h1 id="catalogTitle">Milana Premium</h1>
         </div>
+      </section>
+
+      <section class="admin-sticky-toolbar">
         <div class="toolbar">
           <nav class="catalog-switch" aria-label="Catalogs">
             <a href="admin.html?id=1" data-catalog-link="1">01</a>
