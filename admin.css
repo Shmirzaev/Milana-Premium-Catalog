@@ -35,6 +35,16 @@
   white-space: nowrap;
 }
 
+.admin-workspace .catalog-head {
+  position: sticky;
+  top: 74px;
+  z-index: 15;
+  margin-bottom: 22px;
+  padding: 14px 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
 .primary-action {
   padding: 0 18px;
   background: var(--ink);
@@ -396,6 +406,10 @@
   .admin-header-actions {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .admin-workspace .catalog-head {
+    top: 62px;
   }
 
   .admin-workspace .toolbar {
