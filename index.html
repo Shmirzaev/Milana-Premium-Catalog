@@ -94,6 +94,7 @@
     .catalog-card:nth-child(2){animation-delay:.15s}
     .catalog-card:nth-child(3){animation-delay:.25s}
     .catalog-card:nth-child(4){animation-delay:.35s}
+    .catalog-card:nth-child(5){animation-delay:.45s}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     .catalog-card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(184,149,58,0.15)}
     .catalog-card:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
@@ -331,6 +332,13 @@ const DEFAULT_CATALOGS = [
    cover_en:"covers/milana-products-in-stock-en.png",
    cover_ru:"covers/milana-products-in-stock-ru.png",
    cover_uz:"covers/milana-products-in-stock-uz.png"},
+  {id:5,
+   title_en:"Winter collection",title_ru:"Winter collection",title_uz:"Winter collection",
+   sub_en:"Product Catalog",sub_ru:"Product Catalog",sub_uz:"Product Catalog",
+   pdf:"",
+   cover_en:"covers/winter-collection.jpg",
+   cover_ru:"covers/winter-collection.jpg",
+   cover_uz:"covers/winter-collection.jpg"},
 ];
 
 let catalogs = DEFAULT_CATALOGS.map(function(cat){ return Object.assign({}, cat); });
@@ -382,9 +390,7 @@ function renderCards(){
         ? '<iframe src="' + pdfEmbedUrl(cat.pdf) + '" loading="lazy"></iframe>'
         : '<div class="ph">' + (PH[idx]||PH[0]) + '</div>');
 
-    const overlayInner = cat.pdf
-      ? '<a class="ov-btn primary" href="' + productUrl + '">' + t('view') + '</a>'
-      : '<button class="ov-btn primary" type="button" disabled>' + t('no_pdf') + '</button>';
+    const overlayInner = '<a class="ov-btn primary" href="' + productUrl + '">' + t('view') + '</a>';
 
     card.innerHTML =
       '<div class="card-thumb">' + thumbInner +

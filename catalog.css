@@ -514,10 +514,16 @@ h1 {
     min-height: auto;
     align-items: center;
     flex-direction: row;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .brand {
+    flex: 0 0 74px;
   }
 
   .brand-logo {
-    width: 170px;
+    width: 74px;
   }
 
   .header-actions {
@@ -527,17 +533,17 @@ h1 {
   .catalog-switch {
     width: auto;
     justify-content: flex-end;
-    gap: 5px;
+    gap: 3px;
   }
 
   .catalog-switch a {
-    flex: 0 0 32px;
-    width: 32px;
+    flex: 0 0 30px;
+    width: 30px;
     height: 34px;
   }
 
   .admin-trigger {
-    width: 32px;
+    width: 30px;
     height: 34px;
     font-size: 10px;
   }

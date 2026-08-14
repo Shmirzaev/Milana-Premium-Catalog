@@ -3,7 +3,8 @@
     { id: 1, sourcePdf: "01_Staple_Model_Catalog.pdf", title: "Staple Model Catalog" },
     { id: 2, sourcePdf: "02_Milana_Man_Premium_Collection.pdf", title: "Milana Man Premium Collection" },
     { id: 3, sourcePdf: "03_Kindergarten_Set.pdf", title: "Kindergarten Set" },
-    { id: 4, sourcePdf: "04_Milana_Products_in_Stock.pdf", title: "Milana Products in Stock" }
+    { id: 4, sourcePdf: "04_Milana_Products_in_Stock.pdf", title: "Milana Products in Stock" },
+    { id: 5, sourcePdf: "05_Winter_Collection.pdf", title: "Winter collection" }
   ];
 
   const config = window.MILANA_CONFIG || {};
@@ -385,7 +386,7 @@
 
   function productCardMarkup(product) {
     const model = escapeHtml(product.model_code || product.product_code || "Model");
-    const code = escapeHtml(product.product_code || product.model_code || "");
+    const code = escapeHtml(product.product_code || "");
       const image = resolveImageUrl(product);
       const imageFallbacks = image ? adminImageFallbacks(product, image) : [];
       const price = escapeHtml(formatPrice(product.price, product.currency));
@@ -427,7 +428,7 @@
               <h2 class="model">${model}</h2>
               <p class="price">${price}</p>
             </div>
-            <p class="code">Code ${code}</p>
+            ${code ? `<p class="code">Code ${code}</p>` : ""}
             <div class="card-move-actions" aria-label="Move card">
               <button type="button" data-move-action="top" data-product-key="${key}">Top</button>
               <button type="button" data-move-action="left" data-product-key="${key}">Left</button>
@@ -1769,7 +1770,9 @@
 
   function formatPrice(value, currency) {
     const number = Number(value);
-    const clean = Number.isFinite(number) ? number.toFixed(2).replace(/\.00$/, "").replace(/0$/, "") : String(value || "");
+    const clean = Number.isFinite(number)
+      ? (Number.isInteger(number) ? String(number) : number.toFixed(2).replace(/0$/, ""))
+      : String(value || "");
     if (!clean) {
       return "";
     }

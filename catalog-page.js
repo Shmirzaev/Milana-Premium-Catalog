@@ -35,6 +35,15 @@
         ru: "Милана наличие товаров",
         uz: "Milana mavjud mahsulotlar"
       }
+    },
+    {
+      id: 5,
+      sourcePdf: "05_Winter_Collection.pdf",
+      titles: {
+        en: "Winter collection",
+        ru: "Winter collection",
+        uz: "Winter collection"
+      }
     }
   ];
 
@@ -564,7 +573,7 @@
 
   function productCardMarkup(product, index) {
     const modelValue = product.model_code || product.product_code || "Model";
-    const codeValue = product.product_code || product.model_code || "";
+    const codeValue = product.product_code || "";
     const model = escapeHtml(modelValue);
     const code = escapeHtml(codeValue);
     const pdfSearch = escapeHtml(pdfSearchText(modelValue, codeValue));
@@ -598,7 +607,7 @@
             <h2 class="model">${model}</h2>
             <p class="price">${price}</p>
           </div>
-          <p class="code">Code ${code}</p>
+          ${codeValue ? `<p class="code">Code ${code}</p>` : ""}
         </div>
       </article>
     `;
@@ -642,7 +651,7 @@
     }
 
     const model = product.model_code || product.product_code || "Model";
-    const code = product.product_code || product.model_code || "";
+    const code = product.product_code || "";
     const image = resolveImageUrl(product);
     const price = formatPrice(product.price, product.currency);
 
@@ -653,7 +662,7 @@
       <div class="modal-info">
         <p class="eyebrow">Product</p>
         <h2 class="model">${escapeHtml(model)}</h2>
-        <p class="code">Code ${escapeHtml(code)}</p>
+        ${code ? `<p class="code">Code ${escapeHtml(code)}</p>` : ""}
         <p class="price">${escapeHtml(price)}</p>
       </div>
     `;
@@ -1107,7 +1116,9 @@
 
   function formatPrice(value, currency) {
     const number = Number(value);
-    const clean = Number.isFinite(number) ? number.toFixed(2).replace(/\.00$/, "").replace(/0$/, "") : String(value || "");
+    const clean = Number.isFinite(number)
+      ? (Number.isInteger(number) ? String(number) : number.toFixed(2).replace(/0$/, ""))
+      : String(value || "");
     if (!clean) {
       return "";
     }
